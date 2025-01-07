@@ -6,6 +6,7 @@ akey="HB0CyUa7I01Oaj8FsR3sy4kk2NovfzKf"
 otherakey="a3d65b6e16f2672529ff996d85d98188"
 def get_jsonparsed_data(url):
     response = urlopen(url)
+    print(response)
     data = response.read().decode("utf-8")
     return json.loads(data)
 #url=""
