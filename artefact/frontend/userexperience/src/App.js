@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import LinePlot from "./chartcreater.jsx"
 
+//const stock = FileAttachment("aapl.csv").csv({typed: true})
+const stock = [1,2,3,4,5,6,7,8,9,10]
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
+        <h1>Stock Price Chart</h1>
+        <div id="chart">
+          {LinePlot(stock)}
+        </div>
       </header>
     </div>
   );
