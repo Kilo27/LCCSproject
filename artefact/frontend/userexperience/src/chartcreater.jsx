@@ -9,6 +9,7 @@ export default function LinePlot({
     marginBottom = 20,
     marginLeft = 20
   }) {
+    if (data === undefined) data = [];
     const x = d3.scaleLinear([0, data.length - 1], [marginLeft, width - marginRight]);
     const y = d3.scaleLinear(d3.extent(data), [height - marginBottom, marginTop]);
     const line = d3.line((d, i) => x(i), y);
