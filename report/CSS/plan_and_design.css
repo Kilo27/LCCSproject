@@ -6,6 +6,10 @@
 p{
     color: white;
 }
+img{
+    width:inherit;
+    height: inherit;
+}
 #menu{
     width: 100%;
     height: 20%;
@@ -28,4 +32,19 @@ a:hover{
 }
 .menulink{
     padding: 3px;
+}
+#image{
+    width: 30%;
+    height: 10%;
+    padding: 1%;
+    border-radius: 20px;
+}
+#content{
+    margin-top: 10%;
+    width: 50%;
+    float: right;
+    padding: 5px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #C84630;
 }
