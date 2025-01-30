@@ -59,15 +59,17 @@ def estimate_coefficient(x, y):
     b_0 = m_y - b_1*m_x
     return(b_0, b_1)
 
-def plotregressionline(x,b):
+def plotregressionline(x,y,b):
     print(f"Estimated coefficients:\nb_0 = {b[0]}\nb_1 = {b[1]}")
-    plt.plot(x+lowindex, b[0] + b[1]*x, color="green")
+    plt.plot(x+y, b[0] + b[1]*x, color="green")
 
 #cubic regression line
 model=np.polyfit(np.arange(len(x)), y1, 3)
 polyline=np.poly1d(model)
 #plt.plot(polyline, model, color="purple")
 
-plotregressionline(np.arange(len(x[lowindex:])),  estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
-plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line"])
+plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),y1))
+plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
+plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linead Regression Line (After Lowest Value)"])
+plt.show()
 mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
