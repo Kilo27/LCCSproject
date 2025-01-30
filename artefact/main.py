@@ -1,5 +1,5 @@
 import csv
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, mpld3
 import numpy as np
 
 date=[]
@@ -40,6 +40,7 @@ y1=np.array(stockclose)
 y2=np.array(stockopen)
 y3=np.array(high)
 y4=np.array(low)
+graph=plt.figure()
 plt.xlabel("Date")
 plt.ylabel("Stock Price (USD)")
 plt.plot(x,y1, label="Stock Close", linestyle="-")
@@ -60,8 +61,13 @@ def estimate_coefficient(x, y):
 
 def plotregressionline(x,b):
     print(f"Estimated coefficients:\nb_0 = {b[0]}\nb_1 = {b[1]}")
-    plt.plot(x, b[0] + b[1]*x, color="green")   
+    plt.plot(x+lowindex, b[0] + b[1]*x, color="green")
+
+#cubic regression line
+model=np.polyfit(np.arange(len(x)), y1, 3)
+polyline=np.poly1d(model)
+#plt.plot(polyline, model, color="purple")
 
 plotregressionline(np.arange(len(x[lowindex:])),  estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
-plt.legend(["Stock Close", "Stock Open", "High", "Low", "Closing Regression Line"])
-plt.show()
+plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line"])
+mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
