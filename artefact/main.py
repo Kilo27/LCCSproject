@@ -46,4 +46,22 @@ plt.plot(x,y1, label="Stock Close", linestyle="-")
 plt.plot(x,y2, label="Stock Open", linestyle="--", color="red")
 plt.plot(x,y3, label="High", linestyle="-.")
 plt.plot(x,y4, label="Low", linestyle=":")
+def find_lowest_value(y):
+    return np.argmin(y)
+lowindex=find_lowest_value(y1)
+def estimate_coefficient(x, y):
+    n = np.size(x)
+    m_x, m_y = np.mean(x), np.mean(y)
+    SS_xy = np.sum(y*x) - n*m_y*m_x
+    SS_xx = np.sum(x*x) - n*m_x*m_x
+    b_1 = SS_xy / SS_xx
+    b_0 = m_y - b_1*m_x
+    return(b_0, b_1)
+
+def plotregressionline(x,b):
+    print(f"Estimated coefficients:\nb_0 = {b[0]}\nb_1 = {b[1]}")
+    plt.plot(x, b[0] + b[1]*x, color="green")   
+
+plotregressionline(np.arange(len(x[lowindex:])),  estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
+plt.legend(["Stock Close", "Stock Open", "High", "Low", "Closing Regression Line"])
 plt.show()
