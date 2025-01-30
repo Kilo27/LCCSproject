@@ -1,4 +1,3 @@
-import csv
 import matplotlib.pyplot as plt, mpld3
 import numpy as np
 
@@ -14,24 +13,29 @@ with open ("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and 
     l1.pop()
     for i in range(len(l1)):
         l1[i]=l1[i].split(",")
+    
     for i in range(1, len(l1)):
         date.append(l1[i][0])
     date=date[::-1]
+
     for i in range(1, len(l1)):
         stockclose.append(float(l1[i][1].replace("$", "")))
+        stockopen.append(float(l1[i][3].replace("$", "")))
     stockclose=stockclose[::-1]
+    stockopen=stockopen[::-1]
+
     for i in range(1, len(l1)):
         volume.append(int(l1[i][2]))
     volume=volume[::-1]
-    for i in range(1, len(l1)):
-        stockopen.append(float(l1[i][3].replace("$", "")))
-    stockopen=stockopen[::-1]
+
     for i in range(1, len(l1)):
         high.append(float(l1[i][4].replace("$", "")))
     high=high[::-1]
+
     for i in range(1, len(l1)):
         low.append(float(l1[i][5].replace("$", "")))
     low=low[::-1]
+
     print(f"Date: {date},\n Stock Close: {stockclose},\n Volume: {volume},\n Stock Open: {stockopen},\n High: {high},\n Low: {low}")
 
 #time-based graph
@@ -67,4 +71,4 @@ plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),
 plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
 plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)"])
 plt.show()
-mpld3.save_json(plt.figure(graph),"artefact\\graph.json")   
+mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
