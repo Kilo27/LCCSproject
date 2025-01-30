@@ -8,7 +8,7 @@ volume=[]
 stockopen=[]
 high=[]
 low=[]
-with open ("artefact\\aapl.csv", 'r') as file:
+with open ("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
     data = file.read()
     l1=data.split("\n")
     l1.pop()
@@ -32,7 +32,7 @@ with open ("artefact\\aapl.csv", 'r') as file:
     for i in range(1, len(l1)):
         low.append(float(l1[i][5].replace("$", "")))
     low=low[::-1]
-    print(f"Date: {date}, Stock Close: {stockclose}, Volume: {volume}, Stock Open: {stockopen}, High: {high}, Low: {low}")
+    print(f"Date: {date},\n Stock Close: {stockclose},\n Volume: {volume},\n Stock Open: {stockopen},\n High: {high},\n Low: {low}")
 
 #time-based graph
 x=np.array(date)
@@ -63,13 +63,8 @@ def plotregressionline(x,y,b):
     print(f"Estimated coefficients:\nb_0 = {b[0]}\nb_1 = {b[1]}")
     plt.plot(x+y, b[0] + b[1]*x, color="green")
 
-#cubic regression line
-model=np.polyfit(np.arange(len(x)), y1, 3)
-polyline=np.poly1d(model)
-#plt.plot(polyline, model, color="purple")
-
 plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),y1))
 plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
-plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linead Regression Line (After Lowest Value)"])
+plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)"])
 plt.show()
-mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
+mpld3.save_json(plt.figure(graph),"artefact\\graph.json")   
