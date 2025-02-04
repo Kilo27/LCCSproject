@@ -8,7 +8,7 @@ volume=[]
 stockopen=[]
 high=[]
 low=[]
-with open ("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
+with open("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
     data = file.read()
     l1=data.split("\n")
     l1.pop()
@@ -49,7 +49,7 @@ jsondict = {
 }
 json_object=json.dumps(jsondict, indent=4)
 
-with open("artefact\\ui\\data.json", "w") as outfile:
+with open("artefact\\ui\\src\\data.json", "w") as outfile:
     outfile.write(json_object)
 #time-based graph
 """x=np.array(date)
