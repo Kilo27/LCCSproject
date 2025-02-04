@@ -29,7 +29,7 @@ function App() {
               marker: {color: 'blue'},
             }
           ]}
-          layout={ {width: 1000, height: 500, title: {text: 'Stock Close Over Time'}} }
+          layout={ {width: 1000, height: 500, title: {text: 'Stock Quotes Over Time'}} }
         />
     </div>
   );
