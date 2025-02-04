@@ -41,9 +41,9 @@ with open("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I
 
 jsondict = {
     "Date": date,
-    "Stock Close": stockclose,
+    "Stock_Close": stockclose,
     "Volume": volume,
-    "Stock Open": stockopen,
+    "Stock_Open": stockopen,
     "High": high,
     "Low": low
 }
