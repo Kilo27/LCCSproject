@@ -15,7 +15,7 @@ with open ("artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and 
         l1[i]=l1[i].split(",")
     
     for i in range(1, len(l1)):
-        date.append(l1[i][0])
+        date.append(l1[i][0].replace("/2025",""))
     date=date[::-1]
 
     for i in range(1, len(l1)):
