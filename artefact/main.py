@@ -52,7 +52,7 @@ json_object=json.dumps(jsondict, indent=4)
 with open("artefact\\ui\\src\\data.json", "w") as outfile:
     outfile.write(json_object)
 #time-based graph
-"""x=np.array(date)
+x=np.array(date)
 y1=np.array(stockclose)
 y2=np.array(stockopen)
 y3=np.array(high)
@@ -84,4 +84,4 @@ plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),
 plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
 plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)"])
 plt.show()
-mpld3.save_json(plt.figure(graph),"artefact\\graph.json")"""
+mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
