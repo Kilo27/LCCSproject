@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
+    "fs": "^0.0.1-security",
     "plotly.js": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
