@@ -27,9 +27,27 @@ function App() {
               type: 'scatter',
               mode: 'lines+markers',
               marker: {color: 'blue'},
-            }
+            },
+			{
+				x:date,
+				y: high,
+				name: 'high',
+				type: 'scatter',
+				mode: 'lines+markers',
+				marker: {color: 'green'},
+			},
+			{
+				x:date,
+				y: low,
+				name: 'low',
+				type: 'scatter',
+				mode: 'lines+markers',
+				marker: {color: 'yellow'},
+			}
           ]}
           layout={ {width: 1000, height: 500, title: {text: 'Stock Quotes Over Time'}} }
+		  paper_bgcolor='#CFB1B7'
+		  plot_bgcolor='#CFB1B7'
         />
     </div>
   );
