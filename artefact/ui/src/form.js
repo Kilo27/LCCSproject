@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
 const Form = () => {
-	const [formData, setFormData] = useState({ name: '', email: '' });
-
+	const [formData, setFormData] = useState({ tickercode: '', actualPrice: 0.0, rangeProvided: 0.0 });
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
@@ -10,6 +9,7 @@ const Form = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log('Form submitted', formData);
 		// Replace this with a call to a server endpoint
 		fetch('/api/saveFormData', {
 			method: 'POST',
@@ -19,26 +19,24 @@ const Form = () => {
 			body: JSON.stringify(formData),
 		})
 			.then((response) => response.json())
-			.then((data) => {
-				console.log('Data saved successfully', data);
-			})
-					.catch((error) => {
-						console.error('Error saving data', error);
-					});
-			};
+		};
 
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label>Name:</label>
-				<input type="text" name="name" value={formData.name} onChange={handleChange} />
+				<label>Tickercode:</label>
+				<input type="text" name="tickercode" value={formData.tickercode} onChange={handleChange} />
 			</div>
 			<div>
-				<label>Email:</label>
-				<input type="email" name="email" value={formData.email} onChange={handleChange} />
+				<label>Actual Price:</label>
+				<input type="number" name="actualPrice" value={formData.actualPrice} onChange={handleChange} />
+			</div>
+			<div>
+				<label>Range Provided:</label>
+				<input type="number" name="rangeProvided" value={formData.rangeProvided} onChange={handleChange} />
 			</div>
 			<button type="submit">Submit</button>
 		</form>
-		);
+	);
 	};
 export default Form;
