@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const Form = () => {
@@ -16,10 +17,25 @@ const Form = () => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(formData),
+			body: JSON.stringify({
+				tickercode: formData.tickercode,
+				actualPrice: parseFloat(formData.actualPrice),
+				rangeProvided: parseFloat(formData.rangeProvided),
+			}),
 		})
-			.then((response) => response.json())
-		};
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.json();
+			})
+			.then((data) => {
+				console.log('Success:', data);
+			})
+			.catch((error) => {
+				console.error('There was a problem with the fetch operation:', error);
+			});
+	}
 
 	return (
 		<form onSubmit={handleSubmit}>
