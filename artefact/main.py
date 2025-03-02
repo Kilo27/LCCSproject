@@ -2,6 +2,40 @@ import matplotlib.pyplot as plt, mpld3
 import numpy as np
 import json
 import time
+import urllib.request
+import urllib
+import re
+
+name=input("Enter the stock name: ").upper()
+
+import urllib.error
+
+def fetch_html(url):
+	try:
+		with urllib.request.urlopen(url) as response:
+			return response.read().decode("utf-8")
+	except urllib.error.HTTPError as e:
+		print(f"HTTP error: {e.code}")
+	except urllib.error.URLError as e:
+		print(f"URL error: {e.reason}")
+	time.sleep(2)
+	return fetch_html(url)
+
+htmltext = fetch_html(f"https://finance.yahoo.com/quote/{name}/")
+if htmltext is None:
+	print("Failed to fetch data. Exiting.")
+	exit()
+
+regex = '<span class="base up1   yf-ipw1h0" data-testid="qsp-price">241.60</span>' 
+
+pattern = re.compile(regex)
+
+price = re.findall(pattern, htmltext)
+
+print(price)
+
+
+
 while True:
 	date=[]
 	stockclose=[]
