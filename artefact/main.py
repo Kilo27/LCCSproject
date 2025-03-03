@@ -6,7 +6,7 @@ import urllib.request
 import urllib
 import re
 
-name=input("Enter the stock name: ").upper()
+name=input("Enter the stock name: ").lower()
 
 import urllib.error
 
@@ -21,12 +21,12 @@ def fetch_html(url):
 	time.sleep(2)
 	return fetch_html(url)
 
-htmltext = fetch_html(f"https://finance.yahoo.com/quote/{name}/")
+htmltext = fetch_html(f"https://www.nasdaq.com/market-activity/stocks/{name}/")
 if htmltext is None:
 	print("Failed to fetch data. Exiting.")
 	exit()
 
-regex = '<span class="base up1   yf-ipw1h0" data-testid="qsp-price">241.60</span>' 
+regex = '<div class="nsdq-quote-header__pricing-information-saleprice">' 
 
 pattern = re.compile(regex)
 
