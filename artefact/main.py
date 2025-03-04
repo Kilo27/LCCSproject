@@ -6,7 +6,7 @@ import urllib.request
 import urllib
 import re
 
-name=input("Enter the stock name: ").lower()
+"""name=input("Enter the stock name: ").lower()
 
 import urllib.error
 
@@ -32,7 +32,7 @@ pattern = re.compile(regex)
 
 price = re.findall(pattern, htmltext)
 
-print(price)
+print(price)"""
 
 
 

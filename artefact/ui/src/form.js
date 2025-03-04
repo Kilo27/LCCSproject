@@ -1,58 +1,28 @@
+import { createClient } from '@supabase/supabase-js'
 
-import React, { useState } from 'react';
+const supabaseUrl = 'https://orldlltjpubfiidsueec.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
-const Form = () => {
-	const [formData, setFormData] = useState({ tickercode: '', actualPrice: 0.0, rangeProvided: 0.0 });
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData({ ...formData, [name]: value });
-	};
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log('Form submitted', formData);
-		// Replace this with a call to a server endpoint
-		fetch('/api/saveFormData', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				tickercode: formData.tickercode,
-				actualPrice: parseFloat(formData.actualPrice),
-				rangeProvided: parseFloat(formData.rangeProvided),
-			}),
-		})
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				return response.json();
-			})
-			.then((data) => {
-				console.log('Success:', data);
-			})
-			.catch((error) => {
-				console.error('There was a problem with the fetch operation:', error);
-			});
-	}
-
-	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label>Tickercode:</label>
-				<input type="text" name="tickercode" value={formData.tickercode} onChange={handleChange} />
-			</div>
-			<div>
-				<label>Actual Price:</label>
-				<input type="number" name="actualPrice" value={formData.actualPrice} onChange={handleChange} />
-			</div>
-			<div>
-				<label>Range Provided:</label>
-				<input type="number" name="rangeProvided" value={formData.rangeProvided} onChange={handleChange} />
-			</div>
-			<button type="submit">Submit</button>
-		</form>
+function Form(){
+	return(
+		<div>
+			<form>
+				<label>
+					Enter Symbol
+					<input type="text" name="symbol" />
+				</label>
+				<label>
+					Enter AI Suggested Value (One Week)
+					<input type="float" name="ai_suggested_value" />
+				</label>
+				<label>
+					Enter Actual Value (One Week)
+					<input type="integer" name="Actual Value" />
+					</label>
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
 	);
-	};
+}
 export default Form;
