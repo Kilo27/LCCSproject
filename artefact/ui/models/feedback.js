@@ -5,7 +5,7 @@ const feedbackSchema= new mongoose.Schema({
 		required: true
 	},
 	ai_suggested_value: {
-		type: Float,
+		type: Integer,
 		required: true
 	},
 	actual_value: {
