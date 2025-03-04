@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import fs from 'fs';
 
 function Form(){
 	const [symbol, setSymbol] = useState('');
@@ -13,11 +12,7 @@ function Form(){
 			ai_suggested_value: ai_suggested_value,
 			actual_value: actual_value
 		};
-		fs.writeFile('feedback.json', JSON.stringify(feedback, null, 2), (err) => {
-			if (err) {
-				console.error('Error writing to file', err);
-			}
-		});
+		console.log('Feedback:', feedback);
 	};
 	return(
 			<form onSubmit= {submitFeedback}>
