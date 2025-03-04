@@ -12,7 +12,20 @@ function Form(){
 			ai_suggested_value: ai_suggested_value,
 			actual_value: actual_value
 		};
-		console.log('Feedback:', feedback);
+		fetch('http://localhost:3000/api/feedbacki', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(feedback)
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
 	};
 	return(
 			<form onSubmit= {submitFeedback}>
@@ -22,11 +35,11 @@ function Form(){
 				</label>
 				<label>
 					Enter AI Suggested Value (One Week)
-					<input type="float" value={ai_suggested_value}  onChange={(e) => setAi_suggested_value(e.target.value)} />
+					<input type="number" value={ai_suggested_value}  onChange={(e) => setAi_suggested_value(e.target.value)} />
 				</label>
 				<label>
 					Enter Actual Value (One Week)
-					<input type="integer" value={actual_value} onChange={(e) => setActual_value(e.target.value)} />
+					<input type="number" value={actual_value} onChange={(e) => setActual_value(e.target.value)} />
 					</label>
 				<input type="submit" value="Submit" />
 			</form>

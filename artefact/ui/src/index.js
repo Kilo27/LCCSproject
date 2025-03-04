@@ -4,10 +4,6 @@ import './index.css';
 import Form from './form';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-const express = require('express');
-const app = express();
-const port = 3000;
-const fs = require('fs');
 
 
 
