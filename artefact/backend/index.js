@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/', {
-    dbName: 'yourDB-name',
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, err => err ? console.log(err) : 
-    console.log('Connected to yourDB-name database'));
+mongoose.connect('mongodb+srv://Admin:ABCD1234@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm',
+//{
+//    dbName: 'FeedbackForm',
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true
+//}, err => err ? console.log(err) : 
+console.log('Connected to Feedback database'));
 
 // Schema for users of app
-const UserSchema = new mongoose.Schema({
+const FeedbackSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
@@ -26,8 +27,8 @@ const UserSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
-const User = mongoose.model('users', UserSchema);
-User.createIndexes();
+const Feedback = mongoose.model('Feedback', FeedbackSchema);
+Feedback.createIndexes();
 
 // For backend and express
 const express = require('express');
@@ -37,26 +38,20 @@ console.log("App listen at port 5000");
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, resp) => {
-
     resp.send("App is Working");
-    // You can check backend is working or not by 
-    // entering http://loacalhost:5000
-    
-    // If you see App is working means
-    // backend working properly
 });
 
 app.post("/feedbackform", async (req, resp) => {
     try {
-        const feedback = new User(req.body);
-        let result = await user.save();
+        const feedback = new Feedback(req.body);
+        let result = await feedback.save();
         result = result.toObject();
         if (result) {
             delete result.password;
             resp.send(req.body);
             console.log(result);
         } else {
-            console.log("User already register");
+            console.log("");
         }
 
     } catch (e) {
