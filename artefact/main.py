@@ -43,7 +43,7 @@ while True:
 	stockopen=[]
 	high=[]
 	low=[]
-	with open("LCCSproject\\artefact\\aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
+	with open("aapl.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
 		data = file.read()
 		l1=data.split("\n")
 		l1.pop()
@@ -84,7 +84,7 @@ while True:
 	}
 	json_object=json.dumps(jsondict, indent=4)
 
-	with open("LCCSproject\\artefact\\ui\\src\\data.json", "w") as outfile:
+	with open("ui\\src\\data.json", "w") as outfile:
 		outfile.write(json_object)
 	#time-based graph
 	x=np.array(date)
@@ -118,6 +118,6 @@ while True:
 	plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),y1))
 	plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
 	plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)"])
-	#plt.show()
+	plt.show()
 	time.sleep(3600)
 #mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
