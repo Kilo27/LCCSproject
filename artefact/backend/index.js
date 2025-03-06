@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://Admin:ABCD1234@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm',
-//{
-//    dbName: 'FeedbackForm',
-//    useNewUrlParser: true,
-//    useUnifiedTopology: true
-//}, err => err ? console.log(err) : 
-console.log('Connected to Feedback database'));
+mongoose.connect('mongodb+srv://Admin:ABCD1234@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm', {
+    dbName: 'FeedbackForm',
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // Schema for users of app
 const FeedbackSchema = new mongoose.Schema({
@@ -47,7 +45,6 @@ app.post("/feedbackform", async (req, resp) => {
         let result = await feedback.save();
         result = result.toObject();
         if (result) {
-            delete result.password;
             resp.send(req.body);
             console.log(result);
         } else {
@@ -55,7 +52,7 @@ app.post("/feedbackform", async (req, resp) => {
         }
 
     } catch (e) {
-        resp.send("Something Went Wrong");
+        resp.send("Something Went Wrong\n" + e);
     }
 });
 app.listen(5000);

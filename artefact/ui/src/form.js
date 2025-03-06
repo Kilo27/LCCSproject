@@ -7,20 +7,28 @@ function Form(){
 	 
 	const submitFeedback = async (event) => {
 		event.preventDefault();
-		let result = await fetch('http://localhost:5000/feedbackform', {
+		let response = await fetch('http://localhost:5000/feedbackform', {
 			method: 'POST',
-			body: JSON.stringify({email, ai_suggested_value, actual_value}),
+			body: JSON.stringify({
+				"email": email,
+				"aisuggestedvalue":ai_suggested_value,
+				"actualvalue":actual_value
+			}),
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
 			},
-		})
-		result= await result.json();
-		console.warn(result);
-		if (result){
-			alert('Feedback Submitted');
-			setEmail("");
-			setAi_suggested_value("");
-			setActual_value("");
+		});
+		if (response.ok) {
+			let result = await response.json();
+			console.warn(result);
+			if (result){
+				alert('Feedback Submitted');
+				setEmail(" ");
+				setAi_suggested_value(" ");
+				setActual_value(" ");
+			}
+		} else {
+			console.error('Error submitting feedback:', response.statusText);
 		}
 	};
 	return(
