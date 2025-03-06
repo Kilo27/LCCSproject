@@ -4,15 +4,22 @@ function Form(){
 	const [email, setEmail] = useState('');
 	const [ai_suggested_value, setAi_suggested_value] = useState('');
 	const [actual_value, setActual_value] = useState('');
+	const [starting_value, setStarting_value] = useState('');
+	let accurate=false;
 	 
 	const submitFeedback = async (event) => {
 		event.preventDefault();
+		if (ai_suggested_value > starting_value && actual_value > starting_value) {
+			accurate = true;
+		}
 		let response = await fetch('http://localhost:5000/feedbackform', {
 			method: 'POST',
 			body: JSON.stringify({
 				"email": email,
+				"startingvalue":starting_value,
 				"aisuggestedvalue":ai_suggested_value,
-				"actualvalue":actual_value
+				"actualvalue":actual_value,
+				"accurate": accurate
 			}),
 			headers: {
 				'Content-Type': 'application/json',
@@ -23,9 +30,10 @@ function Form(){
 			console.warn(result);
 			if (result){
 				alert('Feedback Submitted');
-				setEmail(" ");
-				setAi_suggested_value(" ");
-				setActual_value(" ");
+				setEmail("");
+				setStarting_value("");
+				setAi_suggested_value("");
+				setActual_value("");
 			}
 		} else {
 			console.error('Error submitting feedback:', response.statusText);
@@ -36,6 +44,10 @@ function Form(){
 				<label>
 					Enter Email
 					<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+				</label>
+				<label>
+					Enter Starting Value
+					<input type="number" value={starting_value}  onChange={(e) => setStarting_value(e.target.value)} />
 				</label>
 				<label>
 					Enter AI Suggested Value (One Week)

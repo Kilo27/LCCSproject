@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Form from './form';
 import App from './App';
+import Pichart from './accuracyreport';
 import reportWebVitals from './reportWebVitals';
 
 //const uri = "mongodb+srv://kyleoseoighe:<db_password>@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm";
@@ -31,6 +32,7 @@ root.render(
   <React.StrictMode>
     <App/>
 	<Form/>
+	<Pichart/>
   </React.StrictMode>
 );
 

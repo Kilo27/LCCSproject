@@ -12,6 +12,10 @@ const FeedbackSchema = new mongoose.Schema({
         required: true,
         unique: false,
     },
+	startingvalue: {
+		type: Number,
+		required: true,
+	},
 	aisuggestedvalue: {
         type: Number,
         required: true,
@@ -24,6 +28,10 @@ const FeedbackSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+	accurate: {
+		type: Boolean,
+		required: true,
+	}
 });
 const Feedback = mongoose.model('Feedback', FeedbackSchema);
 Feedback.createIndexes();
@@ -32,7 +40,9 @@ Feedback.createIndexes();
 const express = require('express');
 const app = express();
 const cors = require("cors");
-console.log("App listen at port 5000");
+app.listen(5000, () => {
+    console.log("App listening at port 5000");
+});
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, resp) => {
@@ -55,4 +65,16 @@ app.post("/feedbackform", async (req, resp) => {
         resp.send("Something Went Wrong\n" + e);
     }
 });
-app.listen(5000);
+
+app.get("/accuracyreport", async (req, resp) => {
+	try {
+		const trueCount = await Feedback.countDocuments({ accurate: true });
+		const falseCount = await Feedback.countDocuments({ accurate: false });
+		resp.send({ trueCount, falseCount });
+	} catch (e) {
+		resp.send("Something Went Wrong\n" + e);
+	}
+});
+
+
+//app.listen(5000);
