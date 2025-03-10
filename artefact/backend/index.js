@@ -4,7 +4,7 @@ mongoose.connect('mongodb+srv://Admin:ABCD1234@feedbackform.bn4do.mongodb.net/?r
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-
+var connectno=0
 // Schema for users of app
 const FeedbackSchema = new mongoose.Schema({
     email: {
@@ -71,7 +71,8 @@ app.get("/accuracyreport", async (req, resp) => {
 		const trueCount = await Feedback.countDocuments({ accurate: true });
 		const falseCount = await Feedback.countDocuments({ accurate: false });
 		resp.send({ trueCount, falseCount });
-		console.log("Accuracy Report:", trueCount, falseCount);
+		console.log("Connect Number:", connectno, " Accuracy Report:", trueCount, falseCount);
+		connectno++;
 	} catch (e) {
 		resp.send("Something Went Wrong\n" + e);
 	}
