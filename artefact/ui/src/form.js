@@ -43,24 +43,28 @@ function Form(){
 	return(
 			<form id="userform">
 				<label>
-					Enter Email
+					Enter Email <br/>
 					<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 				</label>
 				<br/>
+				<br/>
 				<label>
-					Enter Starting Value
+					Enter Starting Value <br/>
 					<input type="number" value={starting_value}  onChange={(e) => setStarting_value(e.target.value)} />
 				</label>
 				<br/>
+				<br/>
 				<label>
-					Enter AI Suggested Value (One Week)
+					Enter AI Suggested Value (One Week) <br/>
 					<input type="number" value={ai_suggested_value}  onChange={(e) => setAi_suggested_value(e.target.value)} />
 				</label>
 				<br/>
+				<br/>
 				<label>
-					Enter Actual Value (One Week)
+					Enter Actual Value (One Week) <br/>
 					<input type="number" value={actual_value} onChange={(e) => setActual_value(e.target.value)} />
 				</label>
+				<br/>
 				<br/>
 				<button type="submit" onClick={submitFeedback}>Submit</button>
 			</form>

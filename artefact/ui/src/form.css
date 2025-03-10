@@ -1,3 +1,5 @@
-.userform label{
-	padding-bottom: 10px;
+#userform {
+	align-items: center;
+	height: auto;
+	padding:10px;
 }

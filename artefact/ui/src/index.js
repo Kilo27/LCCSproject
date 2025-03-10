@@ -4,7 +4,7 @@ import './index.css';
 import Form from './form';
 import App from './App';
 import Pichart from './accuracyreport';
-import reportWebVitals from './reportWebVitals';
+//import reportWebVitals from './reportWebVitals';
 
 //const uri = "mongodb+srv://kyleoseoighe:<db_password>@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm";
 //const client = new MongoClient(uri,  {
@@ -30,7 +30,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-		<div id="graphs" class="container">
+	<div id="graphs" class="container">
 		<App/>
 	</div>
 	<div id="accuracy" class="container">
@@ -48,5 +48,5 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(console.log());
+//reportWebVitals(console.log());
 //export default jsondata;

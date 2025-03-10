@@ -20,17 +20,30 @@ body{
 }
 #accuracy{
 	height: 1000px;
+	align-items: center;
 }
 #form{
 	margin: 100px;
 	margin-top:432px;
 	float: left;
-	align-content: center;
-	align-items: center;
 }
 #pichart{
 	margin: 100px;
 	margin-top: 250px;
-	float: right;
-	align-content: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#pichart button{
+	margin-left: inherit;
+	font-size: 130%;
+	margin: 10px;
+	color: #FFF;
+	background-color: #BA1200;
+	border:solid #BA1200;
+	border-radius: 5px;
+	align-self: center;
+	width:50%;
+	padding-top: 2%;
+	padding-bottom:2%;
 }

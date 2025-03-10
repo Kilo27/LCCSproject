@@ -1,30 +1,39 @@
 import Plot from 'react-plotly.js';
+import { useState, useEffect } from 'react';
 
 function Pichart(){
+	const [data, setData] = useState({ trueCount: 0, falseCount: 0 });
+
 	async function fetchAccuracyReport() {
 		try {
-			const response =  fetch('http://localhost:5000/accuracyreport');
-			const data =  response.json();
+			const response = await fetch('http://localhost:5000/accuracyreport');
+			const data = await response.json();
 			const trueValue = data.trueCount;
 			const falseValue = data.falseCount;
-			console.log('Accuracy Report:', trueValue, falseValue);
+			setData({ trueCount: trueValue, falseCount: falseValue });
 		} catch (error) {
 			console.error('Error fetching accuracy report:', error);
+			alert("Server Not Connected")
 		}
 	}
+
+	useEffect(() => {
+		fetchAccuracyReport();
+	}, []);
+
 	return (
 		<div>
 		<Plot
 			data={[
 				{
-					values: fetchAccuracyReport(),
+					values: [data.trueCount, data.falseCount],
 					labels: ['True', 'False'],
 					type: 'pie'
 				}
 			]}
 			layout={ {width: 500, height: 500, title: {text: 'Accuracy Report'}} }
-			paper_bgcolor='#CFB1B7'
-			plot_bgcolor='#CFB1B7'
+			paper_bgcolor='#FFFFFF'
+			plot_bgcolor='#FFFFFF'
 		/>
 		<button onClick={fetchAccuracyReport}>Refresh</button>
 		</div>
