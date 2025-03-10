@@ -32,10 +32,6 @@ function Pichart(){
 				}
 			]}
 			layout={ {width: 500, height: 500, title: {text: 'Accuracy Report'}} }
-			/*ultimateColors={[
-				"#00a8ba",
-				"#ba1200"
-			]}*/
 			paper_bgcolor='#FFFFFF'
 			plot_bgcolor='#FFFFFF'
 		/>
