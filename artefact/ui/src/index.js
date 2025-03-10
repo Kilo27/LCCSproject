@@ -30,9 +30,17 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
-	<Form/>
-	<Pichart/>
+		<div id="graphs" class="container">
+		<App/>
+	</div>
+	<div id="accuracy" class="container">
+		<div id="form"class="container">
+			<Form/>
+		</div>
+		<div id="pichart" class="container">
+		<Pichart/>
+		</div>
+	</div>
   </React.StrictMode>
 );
 

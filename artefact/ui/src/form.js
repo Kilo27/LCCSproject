@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import "./form.css"
 
 function Form(){
 	const [email, setEmail] = useState('');
@@ -40,23 +41,27 @@ function Form(){
 		}
 	};
 	return(
-			<form>
+			<form id="userform">
 				<label>
 					Enter Email
 					<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 				</label>
+				<br/>
 				<label>
 					Enter Starting Value
 					<input type="number" value={starting_value}  onChange={(e) => setStarting_value(e.target.value)} />
 				</label>
+				<br/>
 				<label>
 					Enter AI Suggested Value (One Week)
 					<input type="number" value={ai_suggested_value}  onChange={(e) => setAi_suggested_value(e.target.value)} />
 				</label>
+				<br/>
 				<label>
 					Enter Actual Value (One Week)
 					<input type="number" value={actual_value} onChange={(e) => setActual_value(e.target.value)} />
-					</label>
+				</label>
+				<br/>
 				<button type="submit" onClick={submitFeedback}>Submit</button>
 			</form>
 	);

@@ -71,6 +71,7 @@ app.get("/accuracyreport", async (req, resp) => {
 		const trueCount = await Feedback.countDocuments({ accurate: true });
 		const falseCount = await Feedback.countDocuments({ accurate: false });
 		resp.send({ trueCount, falseCount });
+		console.log("Accuracy Report:", trueCount, falseCount);
 	} catch (e) {
 		resp.send("Something Went Wrong\n" + e);
 	}
