@@ -9,7 +9,8 @@ const high = jsondata.High;
 const low = jsondata.Low;
 function App() {
 return (
-	<div className="App">
+	<div className="App" id='graphcontainer'>
+		<div id="linegraph">
 		<Plot
 				data={[
 					{
@@ -45,28 +46,35 @@ return (
 						marker: {color: 'yellow'},
 					}
 				]}
-				layout={ {width: 1000, height: 500, title: {text: 'Stock Quotes Over Time'}} }
+				layout={ {title: {text: 'Stock Quotes Over Time'}} }
+				style={{width: 1000, height:500, position: 'relative', display: 'inline-block', float: 'left'}}
 				paper_bgcolor='#CFB1B7'
 				plot_bgcolor='#CFB1B7'
+				//config={{ responsive: true }}
 			/>
-			<Plot
-				data={[
-					{
-						x: date,
-						close: close,
-						open: open,
-						high: high,
-						low: low,
-						type: 'candlestick',
-						name: 'Stock Data',
-						increasing: {line: {color: 'green'}},
-						decreasing: {line: {color: 'red'}}
-					}
-				]}
-				layout={ {width: 1000, height: 500, title: {text: 'Stock Quotes Over Time'}} }
-				paper_bgcolor='#CFB1B7'
-				plot_bgcolor='#CFB1B7'
-			/>
+			</div>
+			<div id="candlestick">
+				<Plot
+					data={[
+						{
+							x: date,
+							close: close,
+							open: open,
+							high: high,
+							low: low,
+							type: 'candlestick',
+							name: 'Stock Data',
+							increasing: {line: {color: 'green'}},
+							decreasing: {line: {color: 'red'}}
+						}
+					]}
+					layout={ {title: {text: 'Stock Quotes Over Time'}} }
+					paper_bgcolor='#CFB1B7'
+					plot_bgcolor='#CFB1B7'
+					style={{width: 1000,height:500, position: 'relative', display: 'inline-block',float: 'right'}}
+					divId='graphcontainer'
+				/>
+			</div>
 	</div>
 );
 }

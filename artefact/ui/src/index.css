@@ -18,6 +18,11 @@ body{
 .container{
 	border: solid 2px #000;
 }
+#graphs{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 #accuracy{
 	height: 1000px;
 	align-items: center;

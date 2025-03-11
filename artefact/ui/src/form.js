@@ -6,6 +6,7 @@ function Form(){
 	const [ai_suggested_value, setAi_suggested_value] = useState('');
 	const [actual_value, setActual_value] = useState('');
 	const [starting_value, setStarting_value] = useState('');
+	const [starting_coefficient, setStarting_coefficient] = useState('');
 	let accurate=false;
 	 
 	const submitFeedback = async (event) => {
@@ -20,7 +21,8 @@ function Form(){
 				"startingvalue":starting_value,
 				"aisuggestedvalue":ai_suggested_value,
 				"actualvalue":actual_value,
-				"accurate": accurate
+				"accurate": accurate,
+				"startingcoefficient": starting_coefficient
 			}),
 			headers: {
 				'Content-Type': 'application/json',
@@ -33,6 +35,7 @@ function Form(){
 				alert('Feedback Submitted');
 				setEmail("");
 				setStarting_value("");
+				setStarting_coefficient("");
 				setAi_suggested_value("");
 				setActual_value("");
 			}
@@ -49,8 +52,14 @@ function Form(){
 				<br/>
 				<br/>
 				<label>
-					Enter Starting Value <br/>
+					Enter Starting Value: (Latest Data when prediction was made) <br/>
 					<input type="number" value={starting_value}  onChange={(e) => setStarting_value(e.target.value)} />
+				</label>
+				<br/>
+				<br/>
+				<label>
+					Enter Estimated Coefficient: <br/>
+					<input type="number" value={starting_coefficient}  onChange={(e) => setStarting_coefficient(e.target.value)} />
 				</label>
 				<br/>
 				<br/>

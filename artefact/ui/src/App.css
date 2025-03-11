@@ -4,3 +4,8 @@
 	align-items: center;
 	text-align: center;
 }
+#graphcontainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

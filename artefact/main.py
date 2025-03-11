@@ -74,18 +74,7 @@ while True:
 
 		print(f"Date: {date},\n Stock Close: {stockclose},\n Volume: {volume},\n Stock Open: {stockopen},\n High: {high},\n Low: {low}")
 
-	jsondict = {
-		"Date": date,
-		"Stock_Close": stockclose,
-		"Volume": volume,
-		"Stock_Open": stockopen,
-		"High": high,
-		"Low": low
-	}
-	json_object=json.dumps(jsondict, indent=4)
-
-	with open("ui\\src\\data.json", "w") as outfile:
-		outfile.write(json_object)
+	
 	#time-based graph
 	x=np.array(date)
 	y1=np.array(stockclose)
@@ -105,19 +94,54 @@ while True:
 	def estimate_coefficient(x, y):
 		n = np.size(x)
 		m_x, m_y = np.mean(x), np.mean(y)
+		if m_x == 0:
+			return (0,0)
 		SS_xy = np.sum(y*x) - n*m_y*m_x
 		SS_xx = np.sum(x*x) - n*m_x*m_x
-		b_1 = SS_xy / SS_xx
-		b_0 = m_y - b_1*m_x
-		return(b_0, b_1)
+		m = SS_xy / SS_xx
+		c = m_y - m*m_x
+		return(c, m)#for equation y=mx+c where m is the slope and c is the point of intersection on the y-axis
 
 	def plotregressionline(x,y,b):
-		print(f"Estimated coefficients:\nb_0 = {b[0]}\nb_1 = {b[1]}")
+		print(f"Estimated coefficients:\nc = {b[0]}\nm = {b[1]}")
 		plt.plot(x+y, b[0] + b[1]*x, color="green")
 
-	plotregressionline(np.arange(len(x)), 0, estimate_coefficient(np.arange(len(x)),y1))
-	plotregressionline(np.arange(len(x[lowindex:])),lowindex, estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:]))
-	plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)"])
+	regtotal=estimate_coefficient(np.arange(len(x)),y1)
+	regfromlowest=estimate_coefficient(np.arange(len(x[lowindex:])),y1[lowindex:])
+	regfromlastseven=estimate_coefficient(np.arange(len(x[-7:])), y1[-7:])
+	lowest_last_seven_index = np.argmin(y1[-7:])
+	regfromlowestlastseven = estimate_coefficient(np.arange(len(x[-7 + lowest_last_seven_index:])), y1[-7 + lowest_last_seven_index:])
+	[plotregressionline(np.arange(len(x)), 0, regtotal) if regtotal[1] != 0 else None]
+	[plotregressionline(np.arange(len(x[lowindex:])),lowindex, regfromlowest) if regfromlowest[1] != 0 else None]
+	[plotregressionline(np.arange(len(x[-7:])), len(x)-7, regfromlastseven) if regfromlastseven[1] != 0 else None]
+	[plotregressionline(np.arange(len(x[-7 + lowest_last_seven_index:])), len(x)-7 + lowest_last_seven_index, regfromlowestlastseven) if regfromlowestlastseven[1] != 0 else None]
+	plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)", "Linear Regression Line (Last 7 Days)", "Linear Regression Line (Last 7 Days After Lowest Value)"])
+	plt.title("Stock Price Over Time")
+	meanreg_values = [regtotal[1], regfromlowest[1], regfromlastseven[1], regfromlowestlastseven[1]]
+	meanreg_values = [value for value in meanreg_values if value != 0]
+	if meanreg_values:
+		meanreg = round(sum(meanreg_values) / len(meanreg_values), 2)
+	else:
+		meanreg = 0
+	print(meanreg)
+	valueoverweek=meanreg*7+y1[-1]
+	print(valueoverweek)
+
+	jsondict = {
+		"Date": date,
+		"Stock_Close": stockclose,
+		"Volume": volume,
+		"Stock_Open": stockopen,
+		"High": high,
+		"Low": low,
+		"Mean_Regression": meanreg,
+		"Final_Value": valueoverweek
+	}
+	
+	json_object=json.dumps(jsondict, indent=4)
+
+	with open("ui\\src\\data.json", "w") as outfile:
+		outfile.write(json_object)
 	plt.show()
 	time.sleep(3600)
 #mpld3.save_json(plt.figure(graph),"artefact\\graph.json")

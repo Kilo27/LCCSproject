@@ -16,6 +16,10 @@ const FeedbackSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	estimatedcoefficient: {
+		type: Number,
+		required: true,
+	},
 	aisuggestedvalue: {
         type: Number,
         required: true,
