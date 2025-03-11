@@ -5,6 +5,7 @@ import Form from './form';
 import App from './App';
 import Pichart from './accuracyreport';
 import Prediction from "./prediction";
+import Data from "./data";
 //import reportWebVitals from './reportWebVitals';
 
 //const uri = "mongodb+srv://kyleoseoighe:<db_password>@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm";
@@ -31,6 +32,9 @@ import Prediction from "./prediction";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+	<div id="data" class="container">
+		<Data/>
+	</div>
 	<div id="graphs" class="container">
 		<App/>
 	</div>

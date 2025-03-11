@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {spawn} = require('child_process');
 mongoose.connect('mongodb+srv://Admin:ABCD1234@feedbackform.bn4do.mongodb.net/?retryWrites=true&w=majority&appName=FeedbackForm', {
     dbName: 'FeedbackForm',
     useNewUrlParser: true,
@@ -82,5 +83,27 @@ app.get("/accuracyreport", async (req, resp) => {
 	}
 });
 
+function runScript(userinput) {
+	return spawn('python', [
+		"-u",
+		"./main.py", userinput
+	]);
+}
+app.post("/getdata", (req, resp) => {
+	const userinput = req.body.userinput;
+	console.log(userinput);
+	const pythonProcess = runScript(userinput);
 
-//app.listen(5000);
+	pythonProcess.stdout.on('data', (data) => {
+		console.log(`stdout: ${data}`);
+	});
+
+	pythonProcess.stderr.on('data', (data) => {
+		console.error(`stderr: ${data}`);
+	});
+
+	pythonProcess.on('close', (code) => {
+		console.log(`child process exited with code ${code}`);
+		resp.send(`Python script finished with code ${code}`);
+	});
+});

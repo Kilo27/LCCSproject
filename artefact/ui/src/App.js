@@ -2,16 +2,17 @@ import Plot from 'react-plotly.js';
 import './App.css';
 //import jsondata from './index.js';
 import jsondata from './data.json';
+import React, { useState } from 'react';
 const date = jsondata.Date;
 const close = jsondata.Stock_Close;
 const open = jsondata.Stock_Open;
 const high = jsondata.High;
 const low = jsondata.Low;
 function App() {
-return (
-	<div className="App" id='graphcontainer'>
-		<div id="linegraph">
-		<Plot
+	return (
+		<div className="App" id='graphcontainer'>
+			<div id="linegraph">
+			<Plot
 				data={[
 					{
 						x: date,

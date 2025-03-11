@@ -6,7 +6,8 @@ import urllib.request
 import urllib
 import re
 from webscrape import postData
-code=input("Enter the stock code: ").upper()
+import sys
+code = sys.argv[1].upper()
 postData(code)
 
 date=[]
@@ -112,7 +113,5 @@ jsondict = {
 
 json_object=json.dumps(jsondict, indent=4)
 
-with open("ui\\src\\data.json", "w") as outfile:
+with open("..\\ui\\src\\data.json", "w") as outfile:
 	outfile.write(json_object)
-#plt.show()
-#mpld3.save_json(plt.figure(graph),"artefact\\graph.json")
