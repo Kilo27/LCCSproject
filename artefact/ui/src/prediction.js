@@ -4,26 +4,34 @@ import "./prediction.css"
 const meanreg=jsondata.Mean_Regression;
 const estimate=jsondata.Final_Value
 var statement = "";
-if (meanreg <= -3.0) {
-	statement = "Stock Falling Extremely Quickly, Professional Advice Recommended";
+if (meanreg <= -10.0) {
+    statement = "Stock Falling Extremely Quickly, Professional Advice Recommended";
+} else if (meanreg > -10.0 && meanreg <= -5.0) {
+    statement = "Stock Falling Very Quickly, Proceed With Caution";
+} else if (meanreg > -5.0 && meanreg <= -3.0) {
+    statement = "Stock Falling Quickly, Consider Professional Advice";
 } else if (meanreg > -3.0 && meanreg <= -1.5) {
-	statement = "Stock Falling Extremely Quickly. Professional Advice Recommended";
-}else if (meanreg > -1.5 && meanreg <= -1) {
-	statement = "Significant Decrease Expected";
-} else if (meanreg > -1 && meanreg <= -0.25) {
-	statement = "Moderate Decrease Expected";
+    statement = "Significant Decrease Expected";
+} else if (meanreg > -1.5 && meanreg <= -1.0) {
+    statement = "Moderate Decrease Expected";
+} else if (meanreg > -1.0 && meanreg <= -0.25) {
+    statement = "Slight Decrease Expected";
 } else if (meanreg > -0.25 && meanreg <= 0.25) {
-	statement = "Minimal Change Expected";
-} else if (meanreg > 0.25 && meanreg <=1) {
-	statement = "Moderate Increase Expected";
-} else if (meanreg > 1 && meanreg <= 1.5) {
-	statement = "Significant Increase Expected";
+    statement = "Minimal Change Expected";
+} else if (meanreg > 0.25 && meanreg <= 1.0) {
+    statement = "Slight Increase Expected";
+} else if (meanreg > 1.0 && meanreg <= 1.5) {
+    statement = "Moderate Increase Expected";
 } else if (meanreg > 1.5 && meanreg <= 3.0) {
-	statement = "Stock Rising Extremely Quickly, Proceed With Caution";
-} else if (meanreg > 2.0) {
-	statement = "Stock Rising Extremely Quickly. Professional Advice Recommended";
+    statement = "Significant Increase Expected";
+} else if (meanreg > 3.0 && meanreg <= 5.0) {
+    statement = "Stock Rising Quickly, Consider Professional Advice";
+} else if (meanreg > 5.0 && meanreg <= 10.0) {
+    statement = "Stock Rising Very Quickly, Proceed With Caution";
+} else if (meanreg > 10.0) {
+    statement = "Stock Rising Extremely Quickly, Professional Advice Recommended";
 } else {
-	statement = "Error";
+    statement = "Error";
 }
 
 function Prediction() {

@@ -19,10 +19,10 @@ function Form(){
 			body: JSON.stringify({
 				"email": email,
 				"startingvalue":starting_value,
+				"estimatedcoefficient": starting_coefficient,
 				"aisuggestedvalue":ai_suggested_value,
 				"actualvalue":actual_value,
 				"accurate": accurate,
-				"startingcoefficient": starting_coefficient
 			}),
 			headers: {
 				'Content-Type': 'application/json',

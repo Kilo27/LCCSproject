@@ -97,7 +97,7 @@ if meanreg_values:
 else:
 	meanreg = 0
 print(meanreg)
-valueoverweek=meanreg*7+y1[-1]
+valueoverweek=round(meanreg*7+y1[-1],2)
 print(valueoverweek)
 
 jsondict = {
