@@ -33,7 +33,7 @@ function Prediction() {
 			<br/>
 			<h1>{statement}</h1>
 			<br/>
-			<h1>The estimated value for the stock in one week is {estimate}</h1>
+			<h1>Our estimated value for this stock a week from now, is:  ${estimate}</h1>
 		</div>
 	);
 }

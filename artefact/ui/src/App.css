@@ -29,7 +29,7 @@ body {
 
 /* Individual Graphs */
 #linegraph, #candlestick {
-    background: #CFB1B7;
+    background: #847996;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
