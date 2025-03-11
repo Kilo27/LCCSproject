@@ -1,0 +1,23 @@
+#prediction-container {
+    background-color: #CFB1B7;
+    color: #2C2F33;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.prediction-container h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .prediction-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+}

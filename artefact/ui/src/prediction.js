@@ -1,4 +1,5 @@
 import jsondata from './data.json';
+import "./prediction.css"
 
 const meanreg=jsondata.Mean_Regression;
 const estimate=jsondata.Final_Value
@@ -27,8 +28,8 @@ if (meanreg <= -3.0) {
 
 function Prediction() {
 	return (
-		<div>
-			<h1>The mean regression coefficient is {meanreg}</h1>
+		<div id="prediction-container">
+			<h1>The mean regression coefficient is: {meanreg}</h1>
 			<br/>
 			<h1>{statement}</h1>
 			<br/>

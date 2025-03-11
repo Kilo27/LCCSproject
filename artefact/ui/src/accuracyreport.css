@@ -1,0 +1,49 @@
+.pichart-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #CFB1B7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+button {
+    background-color: #2C2F33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #1E2022;
+}
+
+#SubmitButton {
+    background-color: #2C2F33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#SubmitButton:hover {
+    background-color: #1E2022;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .pichart-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}

@@ -1,5 +1,6 @@
 import Plot from 'react-plotly.js';
 import { useState, useEffect } from 'react';
+import "./accuracyreport.css";
 
 function Pichart(){
 	const [data, setData] = useState({ trueCount: 0, falseCount: 0 });
@@ -22,7 +23,7 @@ function Pichart(){
 	}, []);
 
 	return (
-		<div>
+		<div className='pichart-container'>
 		<Plot
 			data={[
 				{
@@ -35,7 +36,7 @@ function Pichart(){
 			paper_bgcolor='#FFFFFF'
 			plot_bgcolor='#FFFFFF'
 		/>
-		<button onClick={fetchAccuracyReport}>Refresh</button>
+		<button id="SubmitButton"onClick={fetchAccuracyReport}>Refresh</button>
 		</div>
 	);
 }
