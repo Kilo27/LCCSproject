@@ -14,19 +14,20 @@ function Form(){
 		if (ai_suggested_value > starting_value && actual_value > starting_value) {
 			accurate = true;
 		}
-		let response = await fetch('http://localhost:5000/feedbackform', {
-			method: 'POST',
-			body: JSON.stringify({
-				"email": email,
-				"startingvalue":starting_value,
-				"estimatedcoefficient": starting_coefficient,
-				"aisuggestedvalue":ai_suggested_value,
-				"actualvalue":actual_value,
-				"accurate": accurate,
-			}),
-			headers: {
-				'Content-Type': 'application/json',
-			},
+		try{
+			let response = await fetch('http://localhost:5000/feedbackform', {
+				method: 'POST',
+				body: JSON.stringify({
+					"email": email,
+					"startingvalue":starting_value,
+					"estimatedcoefficient": starting_coefficient,
+					"aisuggestedvalue":ai_suggested_value,
+					"actualvalue":actual_value,
+					"accurate": accurate,
+				}),
+				headers: {
+					'Content-Type': 'application/json',
+				},
 		});
 		if (response.ok) {
 			let result = await response.json();
@@ -41,6 +42,10 @@ function Form(){
 			}
 		} else {
 			console.error('Error submitting feedback:', response.statusText);
+		}
+		}
+		catch (error) {
+			alert('Error submitting feedback');
 		}
 	};
 	return(

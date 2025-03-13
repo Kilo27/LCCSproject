@@ -111,3 +111,19 @@ json_object=json.dumps(jsondict, indent=4)
 
 with open("..\\ui\\src\\data.json", "w") as outfile:
 	outfile.write(json_object)
+
+plt.gcf().set_size_inches(20, 10)
+plt.savefig('debug_graph.png', format='png', dpi=1200)
+print("Figure 1. Saved")
+# Bar graph of linear regression slopes
+slope_labels = ["Total", "After Lowest Value", "Last 7 Days", "Last 7 Days After Lowest Value"]
+slope_values = [regtotal[1], regfromlowest[1], regfromlastseven[1], regfromlowestlastseven[1]]
+
+fig, ax = plt.subplots()
+ax.bar(slope_labels, slope_values, color=['blue', 'orange', 'green', 'red'])
+ax.set_xlabel('Regression Type')
+ax.set_ylabel('Slope')
+ax.set_title('Linear Regression Slopes')
+plt.gcf().set_size_inches(10, 5)
+plt.savefig('debug_reg_slopes.png', format='png', dpi=1200)
+print("Figure 2. Saved")

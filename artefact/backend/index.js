@@ -105,5 +105,8 @@ app.post("/getdata", (req, resp) => {
 	pythonProcess.on('close', (code) => {
 		console.log(`child process exited with code ${code}`);
 		resp.send(`Python script finished with code ${code}`);
+		if (code == 1) {
+			console.log("Error in Python Script");
+		}
 	});
 });

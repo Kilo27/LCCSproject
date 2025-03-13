@@ -7,9 +7,9 @@ var statement = "";
 if (meanreg <= -10.0) {
     statement = "Stock Falling Extremely Quickly, Professional Advice Recommended";
 } else if (meanreg > -10.0 && meanreg <= -5.0) {
-    statement = "Stock Falling Very Quickly, Proceed With Caution";
+    statement = "Stock Falling Very Quickly, Highly Volatile";
 } else if (meanreg > -5.0 && meanreg <= -3.0) {
-    statement = "Stock Falling Quickly, Consider Professional Advice";
+    statement = "Stock Falling Quickly, Volatile";
 } else if (meanreg > -3.0 && meanreg <= -1.5) {
     statement = "Significant Decrease Expected";
 } else if (meanreg > -1.5 && meanreg <= -1.0) {
@@ -25,9 +25,9 @@ if (meanreg <= -10.0) {
 } else if (meanreg > 1.5 && meanreg <= 3.0) {
     statement = "Significant Increase Expected";
 } else if (meanreg > 3.0 && meanreg <= 5.0) {
-    statement = "Stock Rising Quickly, Consider Professional Advice";
+    statement = "Stock Rising Quickly, Volatile";
 } else if (meanreg > 5.0 && meanreg <= 10.0) {
-    statement = "Stock Rising Very Quickly, Proceed With Caution";
+    statement = "Stock Rising Very Quickly, Highly Volatile";
 } else if (meanreg > 10.0) {
     statement = "Stock Rising Extremely Quickly, Professional Advice Recommended";
 } else {
