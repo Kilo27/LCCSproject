@@ -6,7 +6,7 @@ def postData(code):
 	day = time.strftime("%d")
 
 	target_url = f"https://api.nasdaq.com/api/quote/{code}/historical?assetclass=stocks&fromdate=2025-01-01&limit=9999&todate={year}-{month}-{day}&random=6"
-
+	print(year, month, day)
 	headers = {
 		"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
 	}

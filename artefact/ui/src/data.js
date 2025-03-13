@@ -3876,6 +3876,7 @@ function Data() {
 'RCRT':'Recruiter.com Group, Inc.',
 'RCRTW':'Recruiter.com Group, Inc.',
 'RDCM':'Radcom Ltd.',
+'RDDT':'Reddit, Inc.',
 'RDFN':'Redfin Corporation',
 'RDHL':'Redhill Biopharma Ltd.',
 'RDI':'Reading International Inc',
@@ -5150,10 +5151,12 @@ function Data() {
 
   const handleSubmit = async () => {
     try {
-    setTitle(nasdaq_stocks[inputValue]);
-	if (title == null){
-		setTitle('Stock');
-	}
+		setShowSuggestions(false);
+		if(nasdaq_stocks[inputValue.toUpperCase()] != null){
+		setTitle(nasdaq_stocks[inputValue.toUpperCase()]);
+		}else{
+			setTitle('Stock');
+		}
     	const response = await fetch('http://localhost:5000/getdata', {
 			method: 'POST',
 			headers: {
