@@ -7,7 +7,6 @@ body {
     text-align: center;
 }
 
-/* App Container */
 .App {
     display: flex;
     flex-direction: column;
@@ -16,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* Graph Container */
 #graphcontainer {
     display: flex;
     flex-wrap: wrap;
@@ -27,7 +25,6 @@ body {
     margin: auto;
 }
 
-/* Individual Graphs */
 #linegraph, #candlestick {
     background: #847996;
     padding: 10px;
@@ -35,7 +32,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 768px) {
     #graphcontainer {
         flex-direction: column;

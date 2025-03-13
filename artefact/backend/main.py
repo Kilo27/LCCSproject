@@ -1,10 +1,6 @@
-import matplotlib.pyplot as plt, mpld3
+import matplotlib.pyplot as plt
 import numpy as np
 import json
-import time
-import urllib.request
-import urllib
-import re
 from webscrape import postData
 import sys
 code = sys.argv[1].upper()
@@ -90,7 +86,7 @@ regfromlowestlastseven = estimate_coefficient(np.arange(len(x[-7 + lowest_last_s
 [plotregressionline(np.arange(len(x[-7 + lowest_last_seven_index:])), len(x)-7 + lowest_last_seven_index, regfromlowestlastseven) if regfromlowestlastseven[1] != 0 else None]
 plt.legend(["Stock Close", "Stock Open", "High", "Low",  "Linear Regression Line", "Linear Regression Line (After Lowest Value)", "Linear Regression Line (Last 7 Days)", "Linear Regression Line (Last 7 Days After Lowest Value)"])
 plt.title("Stock Price Over Time")
-meanreg_values = [regtotal[1], regfromlowest[1], regfromlastseven[1], regfromlowestlastseven[1]]
+meanreg_values = [regtotal[1], 0.5*regfromlowest[1], regfromlastseven[1],0.5* regfromlowestlastseven[1]]
 meanreg_values = [value for value in meanreg_values if value != 0]
 if meanreg_values:
 	meanreg = round(sum(meanreg_values) / len(meanreg_values), 2)

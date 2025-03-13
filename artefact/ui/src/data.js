@@ -7,7 +7,6 @@ function Data() {
   const inputRef = useRef(null);
   const [title, setTitle] = useState("Enter Stock Code");
   const nasdaq_stocks = {
-	'symbol':'name',
 'AACG':'ATA Creativity Global',
 'AACI':'Armada Acquisition Corp. I',
 'AACIU':'Armada Acquisition Corp. I',
