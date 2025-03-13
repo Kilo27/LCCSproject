@@ -45,6 +45,11 @@ function Form(){
 		}
 		}
 		catch (error) {
+			setEmail("");
+			setStarting_value("");
+			setStarting_coefficient("");
+			setAi_suggested_value("");
+			setActual_value("");
 			alert('Error submitting feedback');
 		}
 	};
