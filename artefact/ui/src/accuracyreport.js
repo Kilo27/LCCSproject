@@ -32,7 +32,7 @@ function Pichart(){
 					type: 'pie'
 				}
 			]}
-			layout={ {width: 500, height: 500, title: {text: 'Accuracy Report'}} }
+			layout={ {width: 500, height: 500, title: {text: 'Was The Suggestion Accurate?'}} }
 			paper_bgcolor='#FFFFFF'
 			plot_bgcolor='#FFFFFF'
 		/>
