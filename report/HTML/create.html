@@ -28,6 +28,9 @@
 							<li>Began working on an idea based around stock predictions</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/18 Mar 2025 at 15_46.jpg" width="496" height="392" id="FirstImage">
+					</div>
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Two">
@@ -38,6 +41,9 @@
 							<li>Attempted to create a system to recognise the last time the local database of a stock was updated, and fill in all blanks</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/attempt using flask.png" width="610" height="318" id="SecondImage">
+					</div>
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Three">
@@ -46,6 +52,9 @@
 							<li>Began work on the report</li>
 							<li>Decided to remove Flask and instead use NodeJS due to improved speed and portability of the project.</li>
 						</ul>
+					</div>
+					<div>
+						<img src="../media/early days react.png" height="395" width="372" id="ThirdImage">
 					</div>
 				</div>
 				<div class="supercontainer">
@@ -56,6 +65,9 @@
 							<li>Styling of the report starting, improved the look of the heading and menu objects.</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/CSVtoARR.png" width="630px" height="390" id="FourthImage">
+					</div>
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Five">
@@ -65,14 +77,20 @@
 							<li>Improvements to main.py</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/default react.png" width="370px" height="390px" id="FifthImage">
+					</div>
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Six">
 						<h1>Week 6</h1>
 						<ul>
 							<li>Improvements to Report</li>
-							<li>Creating Graphs with Python</li>
+							<li>Creating Graphs with Python (Broken at first)</li>
 						</ul>
+					</div>
+					<div>
+						<img src="../media/broken graphs/TinyGraph_HugeRegressionLine.png" width="472px" height="354" id="SixthImage">
 					</div>
 				</div>
 				<div class="supercontainer">
@@ -81,10 +99,11 @@
 						<ul>
 							<li>Removed API temporarily to better satisfy basic requirements</li>
 							<li>CSV handling, taking data from a database</li>
-							<li>Began working on a graph of stock Opening, Closing, High and Low prices, decided to make the graph Year-To-Date</li>
+							<li>Finished working on a graph of stock Opening, Closing, High and Low prices, decided to make the graph Year-To-Date</li>
 							<li>Graph was reversed, beacuse csv from Nasdaq placed newest dates at the top</li>
 							<li>Styling the report body</li>
 						</ul>
+						<!--Do not Forget the image for this part is on your other laptop-->
 					</div>
 				</div>
 				<div class="supercontainer">
@@ -94,6 +113,9 @@
 							<li>Completed linear regression from YTD lowest point</li>
 							<li>Graph is exported to JSON file</li>
 						</ul>
+					</div>
+					<div>
+						<img src="../media/broken graphs/debug_graph.png"width="480" height="240" id="EighthImage">
 					</div>
 				</div>
 				<div class="supercontainer">
@@ -124,6 +146,9 @@
 							<li>Styling completed on information System</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/Screenshot 2025-03-11 163443.png" width="450" height="375" id="EleventhImage">
+					</div>
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Twelve">
@@ -133,7 +158,38 @@
 							<li>Finishing Report</li>
 						</ul>
 					</div>
+					<div>
+						<img src="../media/finished project.png" width="300" height="384" id="TwelfthImage">
+					</div>
 				</div>
+			</div>
+			<div id="Testcases">
+				<table>
+					<tr>
+						<th>Test Case</th>
+						<th>Expected Result</th>
+						<th>Actual Result</th>
+						<th>Pass/Fail</th>
+					</tr>
+					<tr>
+						<td>Both Actual and Suggested Values Higher than Starting Value</td>
+						<td>true</td>
+						<td>true</td>
+						<td>Pass</td>
+					</tr>
+					<tr>
+						<td>Actual Value higher than Starting, while suggested is below starting</td>
+						<td>false</td>
+						<td>false</td>
+						<td>Pass</td>
+					</tr>
+					<tr>
+						<td>Both Actual and Suggested Value equal Starting exactly</td>
+						<td>true</td>
+						<td>false</td>
+						<td>Fail</td>
+					</tr>
+				</table>
 			</div>
 </body>
 </html>

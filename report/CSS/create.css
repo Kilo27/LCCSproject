@@ -51,6 +51,7 @@ a:hover{
     border-radius: 20px;
     text-align: left;
     background-color: #C84630;
+	align-items: center;
 }
 .Container h1{
 	text-align: center;
@@ -103,4 +104,63 @@ a:hover{
 	margin-right: 80px;
 	float: right;
 }
-
+#FirstImage{
+	width: 496px;
+	height: 392px;
+	float:right;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-right: 80px;
+}
+#SecondImage{
+	float:left;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-left: 80px;
+}
+#ThirdImage{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin-right: 80px;
+}
+#FourthImage{
+	float:left;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-left: 80px;
+}
+#FifthImage{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin-right: 80px;
+}
+#SixthImage{
+	float:left;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-left: 80px;
+}
+#EighthImage{
+	float:left;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-left: 80px;
+}
+#EleventhImage{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin-right: 80px;
+}
+#TwelfthImage{
+	float:left;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-left: 80px;
+}
+table th td{
+	border: 1px solid black;
+	border-collapse:collapse;
+}
