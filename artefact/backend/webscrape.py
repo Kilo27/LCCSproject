@@ -31,5 +31,5 @@ def postData(code):
 			file.write(",")
 			file.write(str(response.json()["data"]["tradesTable"]["rows"][i]["close"]))
 			file.write(",")
-			file.write(str(response.json()["data"]["tradesTable"]["rows"][i]["volume"]))
+			file.write(str(response.json()["data"]["tradesTable"]["rows"][i]["volume"].replace(",", "")))
 			file.write("\n")

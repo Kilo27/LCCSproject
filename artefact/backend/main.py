@@ -12,7 +12,7 @@ volume=[]
 stockopen=[]
 high=[]
 low=[]
-with open("data.csv", 'r') as file:#artefact\\aapl.csv is needed and I really don't know why it doesn't work.
+with open("data.csv", 'r') as file:
 	data = file.read()
 	l1=data.split("\n")
 	l1.pop()

@@ -5195,9 +5195,9 @@ function Data() {
           width: '200px',
           padding: '10px',
           borderRadius: '4px',
-          border: '1px solid #847996', // Accent color
-          backgroundColor: '#2c2f33', // Dark mode background
-          color: '#ffffff', // White text
+          border: '1px solid #847996',
+          backgroundColor: '#2c2f33',
+          color: '#ffffff',
           outline: 'none',
         }}
       />
@@ -5208,13 +5208,13 @@ function Data() {
             top: '100%',
             left: 0,
             width: '100%',
-            border: '1px solid #847996', // Accent border
-            backgroundColor: '#2c2f33', // Dark mode background
+            border: '1px solid #847996',
+            backgroundColor: '#2c2f33',
             listStyle: 'none',
             padding: '0',
             margin: '5px 0 0 0',
             borderRadius: '4px',
-            boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)', // Subtle shadow
+            boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
             zIndex: 1000
           }}
         >
@@ -5245,8 +5245,8 @@ function Data() {
           padding: '10px 15px',
           border: 'none',
           borderRadius: '4px',
-          backgroundColor: '#847996', // Accent color
-          color: '#ffffff', // White text
+          backgroundColor: '#847996',
+          color: '#ffffff',
           cursor: 'pointer',
         }}
         onMouseEnter={(e) => (e.target.style.backgroundColor = '#6e5a80')}
