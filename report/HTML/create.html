@@ -19,10 +19,11 @@
             <a href="evaluation.html"class="menulink">| Evaluation |</a>
             <a href="references.html"class="menulink">| References |</a>
         </div>
+		<div class="heading"><h2>Learning Log</h2></div>
 		<div id="learninglog">
 				<div class="supercontainer">
 					<div class="Container" id="One">
-						<h1>Week 1</h1>
+						<h3>Week 1</h3>
 						<ul>
 							<li>Made mind map of project brief and requirements</li>
 							<li>Began working on an idea based around stock predictions</li>
@@ -34,7 +35,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Two">
-						<h1>Week 2</h1>
+						<h3>Week 2</h3>
 						<ul>
 							<li>Decided Flask would be a smart and easy way to create an interactive entertainment system</li>
 							<li>Attempted to find API to pull live data from the NASDAQ</li>
@@ -47,7 +48,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Three">
-						<h1>Week 3</h1>
+						<h3>Week 3</h3>
 						<ul>
 							<li>Began work on the report</li>
 							<li>Decided to remove Flask and instead use NodeJS due to improved speed and portability of the project.</li>
@@ -59,7 +60,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Four">
-						<h1>Week 4</h1>
+						<h3>Week 4</h3>
 						<ul>
 							<li>Streamlined system for obtaining data</li>
 							<li>Styling of the report starting, improved the look of the heading and menu objects.</li>
@@ -71,7 +72,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Five">
-						<h1>Week 5</h1>
+						<h3>Week 5</h3>
 						<ul>
 							<li>Continued working with NodeJS, installing React, etc</li>
 							<li>Improvements to main.py</li>
@@ -83,7 +84,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Six">
-						<h1>Week 6</h1>
+						<h3>Week 6</h3>
 						<ul>
 							<li>Improvements to Report</li>
 							<li>Creating Graphs with Python (Broken at first)</li>
@@ -95,7 +96,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Seven">
-						<h1>Week 7</h1>
+						<h3>Week 7</h3>
 						<ul>
 							<li>Removed API temporarily to better satisfy basic requirements</li>
 							<li>CSV handling, taking data from a database</li>
@@ -108,7 +109,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Eight">
-						<h1>Week 8</h1>
+						<h3>Week 8</h3>
 						<ul>
 							<li>Completed linear regression from YTD lowest point</li>
 							<li>Graph is exported to JSON file</li>
@@ -120,7 +121,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Nine">
-						<h1>Week 9</h1>
+						<h3>Week 9</h3>
 						<ul>
 							<li>Interactive information system usable, with NodeJS and ReactJS</li>
 							<li>Graphs all working, and updating live</li>
@@ -129,7 +130,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Ten">
-						<h1>Week 10</h1>
+						<h3>Week 10</h3>
 						<ul>
 							<li>Backend server created to handle user submission data</li>
 							<li>Pie Chart done of responses</li>
@@ -138,7 +139,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Eleven">
-						<h1>Week 11</h1>
+						<h3>Week 11</h3>
 						<ul>
 							<li>All Python moved to the server in order to execute correctly</li>
 							<li>Predictions are calculated based on regression lines</li>
@@ -152,7 +153,7 @@
 				</div>
 				<div class="supercontainer">
 					<div class="Container" id="Twelve">
-						<h1>Week 12</h1>
+						<h3>Week 12</h3>
 						<ul>
 							<li>Cleaning up code</li>
 							<li>Finishing Report</li>
@@ -164,32 +165,44 @@
 				</div>
 			</div>
 			<div id="Testcases">
-				<table>
-					<tr>
-						<th>Test Case</th>
-						<th>Expected Result</th>
-						<th>Actual Result</th>
-						<th>Pass/Fail</th>
-					</tr>
-					<tr>
-						<td>Both Actual and Suggested Values Higher than Starting Value</td>
-						<td>true</td>
-						<td>true</td>
-						<td>Pass</td>
-					</tr>
-					<tr>
-						<td>Actual Value higher than Starting, while suggested is below starting</td>
-						<td>false</td>
-						<td>false</td>
-						<td>Pass</td>
-					</tr>
-					<tr>
-						<td>Both Actual and Suggested Value equal Starting exactly</td>
-						<td>true</td>
-						<td>false</td>
-						<td>Fail</td>
-					</tr>
-				</table>
+				<div class="heading"><h2>Testing</h2></div>
+				<div id="testcasetable">
+					<table>
+						<tr>
+							<th>Test Case</th>
+							<th>Expected Result</th>
+							<th>Actual Result</th>
+							<th>Pass/Fail</th>
+						</tr>
+						<tr>
+							<td>Both Actual and Suggested Values Higher than Starting Value</td>
+							<td>true</td>
+							<td>true</td>
+							<td>Pass</td>
+						</tr>
+						<tr>
+							<td>Actual Value higher than Starting, while suggested is below starting</td>
+							<td>false</td>
+							<td>false</td>
+							<td>Pass</td>
+						</tr>
+						<tr>
+							<td>Both Actual and Suggested Value equal Starting exactly</td>
+							<td>true</td>
+							<td>false</td>
+							<td>Fail</td>
+						</tr>
+					</table>
+				</div>
+				<div id="testcasetext">
+					<p>There were a few points in the project where testing was necessary, to the left you can see an example, testing the expected values of the accuracy report. While in most cases it worked flawlessly, there was one specific condition that failed. If the suggested value and actual value were over or under the starting value, everything worked perfectly, however if they were equal to each other, it would return a false instead of true. This was because I forgot an equals sign, instead of >= (greater or equal to) I used > (greater than)</p>
+				</div>
 			</div>
+			<div id="Issues">
+
+			</div>
+			<footer>
+				<p>text</p>
+			</footer>
 </body>
 </html>
