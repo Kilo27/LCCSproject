@@ -199,10 +199,90 @@
 				</div>
 			</div>
 			<div id="Issues">
-
+				<div class="heading"><h2>Issues</h2></div>
+				<div id="firstissue">
+					<div class="issueparagraph">
+						<p>While working on the regression lines, I discovered a catastrophic error that would occur under very specific conditions. For context, there are four regressions calculated, firstly a year-to-date linear regression. A regression from the lowest point this year, a regression over the last seven days, and finally, a regression from the lowest point in the last seven days. You may realise, it is not possible to calculate those, if the lowest price offer was the most recent data source. This issue was only discovered because the Stock Market crashed recently, had that not happened, it is likely this issue would not have been discovered. Thankfully the issue was easily fixed, if the dataset for regression is only one value long, the slope is calculated to be zero.</p>
+					</div>
+					<div id="firstimage">
+						<img src="../media/coefficient numbers broken.png" id="firstissueimage">
+					</div>
+				</div>
+				<div id="secondissue">
+					<div class="issueparagraph">
+						<p>There was however another error with the regression lines too. In the graph to the left, you can see a stock that is clearly falling, at an extremely quick rate. However, the prediction being given was extremely positive, to the point of suspicion, as it turned out, having each regression line given equal weight in the prediction equation was a mistake. The two “low” regressions need to be valued a lot less, as they were predicting wild changes in stocks, because of a mild day-to-day rebound. Weighing these for less resulted in a far more accurate prediction</p>
+					</div>
+					<div id="firstimage">
+						<img src="../media/broken graphs/brokenregression.png" id="firstissueimage" width="379" height="190">
+					</div>
+				</div>
 			</div>
-			<footer>
-				<p>text</p>
-			</footer>
+			<div id="importantfiles">
+				<div class="heading"><h2>Important Files</h2></div>
+				<div id="backend">
+					<div class="heading"><h3>Backend</h3></div>
+					<div id="serverindex">
+						<div id="index1">
+							<h4 style="text-align: center;">index.js</h4>
+							<p style="padding-left: 50px;">This file mostly handles routing. Its most important job is to connect the User, to the databases, and the python files that calculate and handle all the logic. There are four main parts to this file.</p>
+							<ol>
+								<li>It defines and connects to the database. The schema (or structure) all the data takes is defined here.</li>
+								<br>
+								<li>It posts data from the feedback form to the database. This uses the above schema to ensure data coming from the user is formatted correctly. It is then sent and stored in the database, with errors handled correctly in both the frontend and the backend. </li>
+								<br>
+								<li>it gets the accuracy report from the database, this is similar to the previous step but in reverse. Returning data to the user, from the database. In this case two variables, true or false, with which our pie chart is made. </li>
+								<br>
+								<li>Its final job is the most important, as it is the backbone of the entire project. It takes input from the user in the form of a stock code, calls the python file, using that stock code as an input. With correct error handling, and formatting</li>
+							</ol>
+						</div>
+						<div id="index1images">
+							<img src="../media/index1.png" id="imgindex1">
+							<img src="../media/index2.png" id="imgindex2">
+							<img src="../media/index3.png" id="imgindex3">
+							<img src="../media/index4.png" id="imgindex4">
+						</div>
+					</div>
+					<div id="pymain">
+						<div id="main">
+							<h4 style="text-align: center;">main.py</h4>
+							<p style="padding-left: 50px;">Main.py is a crucial part of this project, with its most important tasks including:</p>
+							<ul>
+								<li>calling webscrape.py,</li>
+								<li>converting the CSV to JSON, cleaning the data as it goes,</li>
+								<li>calculating graphs,</li>
+								<li>doing linear regression calculations to provide predictions, where arr [0] is a point on the line, and arr [1] is the slope.</li>
+								<li>and estimating the price a week from now.</li>
+							</ul>
+							<p style="padding-left: 50px;">Graphs that were calculated in python are saved as images, for debugging.</p>
+						</div>
+						<div id="mainimages">
+							<img src="../media/main1.png" id="img1main">
+							<img src="../media/main2.png" id="img2main">
+							<img src="../media/main3.png" id="img1main">
+							<img src="../media/main4.png" id="img2main">
+						</div>
+					</div>
+				</div>
+				<div id="ui">
+					<div class="heading"><h3>UI</h3></div>
+					<div id="data" class="Container">
+						<h4 style="text-align: center;" >data.js</h4>
+						<p>This file handles the user input, the user submits a stock code, the company name is then rendered as the title, and the code is sent as a parameter in a POST request to execute the python file.</p>
+					</div>
+					<div id="app"class="Container">
+						<h4 style="text-align: center;">app.js</h4>
+						<p>App.js serves to render all the graphs that are seen by the user, using a library called Plotly. It reads the JSON data provided by the python scripts I mentioned earlier, in short, it reads the data, and displays the line graph, and the candlestick graph that the user can see. Along with the dynamic features asked for in the advanced requirements.</p>
+					</div>
+					<div id="form"class="Container">
+						<h4 style="text-align: center;">form.js</h4>
+						<p>Form.js handles the client side of the form, it renders the HTML, ensures all fields are filled, sends the submitted data as a POST request, and then clears the fields for another submission</p>
+					</div>
+					<div id="accuracyreport" class="Container">
+						<h4 style="text-align: center;">accuracyreport.js</h4>
+						<p>This file submits a get request for the “accurate” variable mentioned above, and compares the number of accurate guesses, versus inaccurate ones.</p>
+					</div>
+				</div>
+			</div>
+			<footer></footer>
 </body>
 </html>

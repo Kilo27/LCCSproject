@@ -6,6 +6,12 @@
 p{
     color: white;
 }
+.heading{
+	width: absolute;
+	text-align: center;
+	border-bottom: double 6px #C84630;
+	margin-bottom: 5%;
+}
 img{
     width:inherit;
     height: inherit;
@@ -33,18 +39,100 @@ a:hover{
 .menulink{
     padding: 3px;
 }
-#image{
-    width: 30%;
-    height: 10%;
-    padding: 1%;
-    border-radius: 20px;
+#node{
+	height:950px;
+	background-color: #FAFAFA;
+	border-bottom: 1px black dashed;
+	margin-bottom: 20px;
 }
-#content{
-    margin-top: 10%;
-    width: 50%;
-    float: right;
-    padding: 5px;
+.Container{
+	height: auto;
+	/*margin-top:5%;
+	margin-bottom: 5%;*/
+	color: white;
+    width: 30%;
+    float: left;
+    padding: 15px;
     border-radius: 20px;
-    text-align: center;
+    text-align: justify;
     background-color: #C84630;
+	align-items: center;
+}
+#p1{
+	float:left;
+	margin: 20px;
+	margin-left: 80px;
+}
+#p2{
+	float:right;
+	margin: 20px;
+	margin-right: 80px;
+}
+#nodeideal{
+	float: right;
+	margin: 20px;
+	margin-right: 80px;
+}
+.separator{
+	width: absolute;
+	height:750px;
+	background-color: #FAFAFA;
+	border-bottom: 1px dashed black;
+	margin-top: 20px;
+	margin-bottom:20px;
+}
+#pseudocodeforreg{
+	float:right;
+	text-align: left;
+	width: 50%;
+	background-color: #5B5F97;
+}
+#flowchart{
+	max-width: 100%;
+	height: auto;
+	background-color: #FAFAFA;
+	border-bottom: 1px dashed black;
+}
+#jsprojects{
+	float: left;
+	margin: 20px;
+	margin-left: 80px;
+}
+#jsx{
+	float: left;
+	margin: 20px;
+	margin-left: 80px;
+}
+#mindmap{
+	max-width: 30%;
+	height: auto;
+	float:right;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
+}
+
+#regressionlines{
+	height: 750px;
+}
+#overviewparagraph{
+	float: left;
+	margin: 20px;
+	margin-left: 80px;
+}
+footer{
+	width: absolute;
+	margin-top: 5px;
+	height:100px;
+	background-color: #5B5F97;
+}
+#jsx_example{
+	max-width: 25%;
+	height: auto;
+	float:right;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
 }

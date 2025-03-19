@@ -19,12 +19,78 @@
             <a href="evaluation.html"class="menulink">| Evaluation |</a>
             <a href="references.html"class="menulink">| References |</a>
         </div>
-        <div id="image">
-            <img src="..\media\plan_and_design\Inspiration.jpg" alt="Inspiration">
-        </div>
-        <div id="content">
-            <p>To create this project, we will first start by extracting data using python, the Nasdaq itself allows us to, in one click, download historical CSV data as far back as we wish. We will split this into different arrays, such as opening and closing data, the Volume, as well as daily highs and lows. Following this is the analytics. Using Linear Regression, as well as basic machine learning, we will be able to make basic predictions as to whether a stock will appreciate or depreciate. I will consider this to be a success if the project is successful more than 60% of the time, as that is roughly the point where it is useful and capable of delivering consistent profit. At this point I will create an interactive information system </p>
-        </div>
-    </div>
+		<div id="overview">
+			<div class="separator">
+				<div class="heading"><h2>Overview</h2></div>
+				<div id="overviewparagraph" class="Container">
+					<p>This project is likely to have a complex file structure and complex function calls, it is likely a flowchart will be needed to keep up with it. Similarly, I will create a mindmap, in order to keep track of the file structure.</p>
+				</div>
+				<div>
+					<img src="../media/Artefact.png" id="mindmap">
+				</div>
+				<div id="jsprojects" class="Container">
+					<p>There are two different NodeJS “projects” within this project. One, a UI frontend built
+					using the react framework, and Plotly. And a backend server, built using ExpressJS
+					and Mongoose, it also handles and executes all the Python Scripts. Mostly, I really
+					wanted to keep only one project, and this worked great for a long time. Until I had to
+					submit form data. It was at that point it became clear a second server was needed.
+					React projects are client-side, and unable to interact with either local files, or
+					databases. The proper way to handle this is to send data from the frontend to an
+					API, and from there to the hosted database. This is how the server functions.</p>
+				</div>
+			</div>
+			<div class="separator">
+				
+				<div id="jsx" class="Container">
+					<p>An important part of this project is JSX, this is an extension of normal JavaScript,
+						and it allows for the HTML you see in most JavaScript files in the project. It shares
+						features of both a programming language, and a markup language, allowing for a
+						“best of both worlds” situation when trying to create dynamic, updating webpages.</p>
+				</div>
+				<img src="../media/default react.png" id="jsx_example">
+			</div>
+			<div class="heading"><h2>Flowchart</h2></div>
+			<div id="flowchart">
+				<img src="../media/Flowchart.png" id="flowchart">
+			</div>
+		</div>
+		<div id="node">
+			<div class="heading"><h2>NodeJS</h2></div>
+			<div class="separator">
+				<div class="Container" id="p1">
+					<p>For the backend I have chosen to use NodeJS, there were a few main reasons for this. Firstly NodeJS is portable, meaning that an examiner can run the project on their own computer, provided they have the libraries installed. Secondly it is extremely performant. NodeJS has an extremely efficient way of rendering, that far outpaced the competition. And finally, it made it extremely easy to create both the back, and frontend of the project with compatible technologies</p>
+				</div>
+				<div class="Container"id="nodeideal">
+					<p>NodeJS is ideal for operations such as:</p>
+					<ol type="a">
+						<li>Fetching live stock data</li>
+						<li>Rendering interactive visualisations, (when combined with Plotly and ReactJS)</li>
+					</ol>
+				</div>
+		
+			<div class="Container"id="p2">
+				<p>I have also considered Flask as an alternative, however there were a few reasons why I did not chose to use it. Firstly there is much more setup required, you are supposed to use a python virtual environment, and importing libraries is somewhat more complex. Secondly, because we need to use a virtual environment, it would not have been portable at all. Thirdly, it is far slower, and far less efficient. And finally, in the advanced requirements, it is specified the form must be created with JavaScript, and this would not have been possible with Flask, because it is a Python environment</p>
+			</div>
+		</div>
+		</div>
+		<div id="regressionlines" class="separator">
+			<div class="heading"><h2>Regression Lines</h2></div>
+			<div id="regtext" class="Container">
+				<p>The regression lines in this project will be somewhat complicated. So, in order to visualise them better I have created some pseudocode you can see to the right, in order to better understand how it will work</p>
+			</div>
+			<div id="pseudocodeforreg" class="Container">
+				<p>Function slopefunction(all x values, all y values):</p>
+				<p style="text-indent:20px;">Number of elements on x axis</p>
+				<p style="text-indent:20px;">Get the mean of both axis</p>
+				<p style="text-indent:20px;">If mean equals 0 for x, return 0,0 to avoid divide by zero error</p>
+				<p style="text-indent:20px;">Calculate covariance of x and y</p>
+				<p style="text-indent:20px;">Calculate xovariance of x</p>
+				<p style="text-indent:20px;">Calculate slope (m=covariance of x and y, divided by covariance of x)</p>
+				<p style="text-indent:20px;">Y Intercept equals mean of y minus the slope times the mean of x</p>
+				<p style="text-indent:20px;">return slope and Y Intercept</p>
+				<p>Plot the regression line using the number of values in the x-axis, the starting point of the regression line, the y-intercept, and the slope</p>
+			</div>
+		</div>
+    <footer></footer>
 </body>
 </html>

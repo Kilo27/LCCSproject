@@ -55,9 +55,10 @@ a:hover{
     float: left;
     padding: 5px;
     border-radius: 20px;
-    text-align: left;
+    text-align: justify;
     background-color: #C84630;
 	align-items: center;
+	padding-right: 50px;
 }
 .Container h3{
 	text-align: center;
@@ -167,7 +168,7 @@ a:hover{
 	margin-left: 80px;
 }
 #Testcases{
-	height: 1000px;
+	height: 500px;
 }
 table, th, td{
 	color: white;
@@ -190,7 +191,7 @@ td{
 	color: white;
     width: 30%;
     float: right;
-    padding: 5px;
+    padding: 15px;
     border-radius: 20px;
     text-align: left;
     background-color: #C84630;
@@ -201,4 +202,128 @@ footer{
 	width: absolute;
 	margin-top: 5px;
 	height:100px;
+	background-color: #5B5F97;
+}
+#firstissue{
+	height: 300px;
+	border-bottom: 1px dashed black;
+}
+.issueparagraph{
+	height: auto;
+	/*margin-top:5%;
+	margin-bottom: 5%;*/
+	color: white;
+    width: 50%;
+    float: left;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: left;
+    background-color: #C84630;
+	align-items: center;
+	float: left;
+	margin-left: 80px;
+}
+#firstissueimage{
+	float: right;
+	border:3px solid #C84630;
+	border-radius: 20px;
+	margin-right: 80px;
+}
+#secondissue{
+	margin-top: 20px;
+	height: 300px;
+	border-bottom: 1px dashed black;
+}
+#index1{
+	height: auto;
+	color: white;
+    width: 30%;
+    float: left;
+	margin-left: 80px;
+    padding: 5px;
+	padding-right: 50px;
+    border-radius: 20px;
+    text-align: left;
+    background-color: #C84630;
+	align-items: center;
+}
+#index1images{
+	height: auto;
+}
+#imgindex1{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
+}
+#imgindex2{
+	float: left;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-left: 80px;
+}
+#imgindex3{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
+}
+#imgindex4{
+	float: left;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-left: 80px;
+}
+#backend{
+	height: 3200px;
+}
+#serverindex{
+	height: 1600px;
+}
+#pymain{
+	height: 1600px;
+}
+#main{
+	height: auto;
+	color: white;
+    width: 30%;
+    float: left;
+	margin-left: 80px;
+    padding: 5px;
+	padding-right: 50px;
+    border-radius: 20px;
+    text-align: left;
+    background-color: #C84630;
+	align-items: center;
+}
+#img1main{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
+}
+#img2main{
+	float: left;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-left: 80px;
+}
+#data, #form{
+	float: left;
+	margin: 20px;
+	margin-left:80px;
+}
+#app,#accuracyreport{
+	float: right;
+	margin: 20px;
+	margin-right: 80px;
+}
+#ui{
+	height: 750px;
 }

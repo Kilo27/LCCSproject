@@ -19,6 +19,13 @@
             <a href="evaluation.html"class="menulink">| Evaluation |</a>
             <a href="references.html"class="menulink">| References |</a>
         </div>
+		<div id="separator">
+			<div id="maintext" class="Container">
+				<p>While this project does work and does its job well, there are a few areas in which it could improve. Firstly, as it turns out Mr. Malkiel was correct. It is impossible to predict future stock prices based on price history alone. As such, if I were to improve this project, the first place I would start is with how predictions are done. I would bring in an AI model, which could analyse articles about a company, and using machine learning, figure out, over time which words and sentences preceded an increase, or decrease in value. I would have loved to include this feature in the project. In fact, my first ALT was based on a python library called Spacy, which analysed and extracted information from articles or essays. </p>
+				<p>Unfortunately, there was not enough time to include this feature in the project, much less train a machine learning algorithm too. I would also improve the python, and the way data is sent and processed. As it is now, the data is taken from the Nasdaq API. Converted to CSV, converted to JSON, where it is then used in the Graphs. This, in practice, would not work, because the second a React project is built for production, it mostly loses the ability to read and write local files, and because it is simply a source for all users to interact with at once, you should not use local files anyway. When a second user logs on, the program breaks. The correct way to do this is the same way I handled the form, and the pie chart based on it. That data is sent to and collected from an external database. And if I could redo this project, that is how I would handle the stock data too. This would solve the multiple-user issue, lessen the complexity of the file structure. And the JSON/CSV requirement would still be satisfied because the CSV in between webscrape.py and main.py would not be changed.</p>
+			</div>
+		</div>
     </div>
+	<footer></footer>
 </body>
 </html>
