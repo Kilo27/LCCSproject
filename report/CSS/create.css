@@ -327,3 +327,51 @@ footer{
 #ui{
 	height: 750px;
 }
+#pseudoparagraph{
+	float: left;
+	text-align: justify;
+	margin-left: 80px;
+}
+#pseudocodeforreg{
+	float:right;
+	text-align: left;
+	width: 50%;
+	background-color: #5B5F97;
+	margin-right: 80px;
+}
+#pseudocode{
+	height:1200px;
+}
+#pseudolist{
+	margin-top: 20px;
+	margin-left: 80px;
+}
+#jsonimage{
+	float: left;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-left: 80px;
+	max-width: 50%;
+	height: auto;
+}
+#csvimage{
+	float: right;
+	border: 3px solid #C84630;
+	border-radius: 20px;
+	margin: 20px;
+	margin-right: 80px;
+	max-width: 20%;
+	height: auto;
+}
+#datatable{
+	width: 50%;
+	background-color: #C84630;
+	padding: 10px;
+	border-radius: 20px;
+	margin-right: 25%;
+	margin-left:25%;
+}
+#datacomparison{
+	height:500px;
+}

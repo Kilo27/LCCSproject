@@ -11,8 +11,7 @@
     <div id="body">
         <div id="Title"><h1>Create</h1></div>
         <div id="menu">
-            <a href="index.html" class="menulink">| Index |</a>
-            <a href="brief.html"class="menulink">| Brief |</a>
+            <a href="index.html" class="menulink">| Meeting the Brief |</a>
             <a href="investigation.html"class="menulink">| Investigation |</a>
             <a href="plan_and_design.html"class="menulink">| Plan and Design |</a>
             <a href="create.html"class="menulink">| Create |</a>
@@ -202,7 +201,17 @@
 				<div class="heading"><h2>Issues</h2></div>
 				<div id="firstissue">
 					<div class="issueparagraph">
-						<p>While working on the regression lines, I discovered a catastrophic error that would occur under very specific conditions. For context, there are four regressions calculated, firstly a year-to-date linear regression. A regression from the lowest point this year, a regression over the last seven days, and finally, a regression from the lowest point in the last seven days. You may realise, it is not possible to calculate those, if the lowest price offer was the most recent data source. This issue was only discovered because the Stock Market crashed recently, had that not happened, it is likely this issue would not have been discovered. Thankfully the issue was easily fixed, if the dataset for regression is only one value long, the slope is calculated to be zero.</p>
+						<p>While working on the regression lines, I discovered a major error. For context, there are four regressions calculated, </p>
+						<ol>
+							<li>Year-to-date linear regression,</li>
+							<li>The lowest point this year,</li>
+							<li>The last seven days, </li>
+							<li>The lowest point in the last seven days</li>
+						</ol>
+						<p>
+							It is not possible to calculate those, if the lowest price offer was the most recent data source. This issue was only discovered because the Stock Market crashed recently, had that not happened, it is likely this issue would not have been discovered, now, if the dataset for regression is only one value long, the slope is calculated to be zero. There was however another error with the regression lines too. In the graph to the left, you can see a stock that is clearly falling, at an extremely quick rate. However, the prediction being given was extremely positive, to the point of suspicion, as it turned out, having each regression line given equal weight in the prediction equation was a mistake. The two “low” regressions need to be valued a lot less, as they were predicting wild changes in stocks, because of a mild day-to-day rebound. Weighing these for less resulted in a far more accurate prediction
+
+						</p>
 					</div>
 					<div id="firstimage">
 						<img src="../media/coefficient numbers broken.png" id="firstissueimage">
@@ -224,16 +233,17 @@
 					<div id="serverindex">
 						<div id="index1">
 							<h4 style="text-align: center;">index.js</h4>
-							<p style="padding-left: 50px;">This file mostly handles routing. Its most important job is to connect the User, to the databases, and the python files that calculate and handle all the logic. There are four main parts to this file.</p>
+							<p style="padding-left: 50px;">This file primarily handles routing, connecting users to the database and Python scripts for data processing. It:</p>
 							<ol>
-								<li>It defines and connects to the database. The schema (or structure) all the data takes is defined here.</li>
+								<li>Defines the database schema and establishes connections.</li>
 								<br>
-								<li>It posts data from the feedback form to the database. This uses the above schema to ensure data coming from the user is formatted correctly. It is then sent and stored in the database, with errors handled correctly in both the frontend and the backend. </li>
+								<li>Stores form submissions, ensuring correct formatting and error handling.</li>
 								<br>
-								<li>it gets the accuracy report from the database, this is similar to the previous step but in reverse. Returning data to the user, from the database. In this case two variables, true or false, with which our pie chart is made. </li>
+								<li>Retrieves accuracy data for the pie chart.</li>
 								<br>
-								<li>Its final job is the most important, as it is the backbone of the entire project. It takes input from the user in the form of a stock code, calls the python file, using that stock code as an input. With correct error handling, and formatting</li>
+								<li>Processes stock code inputs, executing Python scripts with proper error handling.</li>
 							</ol>
+							<p>It serves as the backbone of the project.</p>
 						</div>
 						<div id="index1images">
 							<img src="../media/index1.png" id="imgindex1">
@@ -247,11 +257,11 @@
 							<h4 style="text-align: center;">main.py</h4>
 							<p style="padding-left: 50px;">Main.py is a crucial part of this project, with its most important tasks including:</p>
 							<ul>
-								<li>calling webscrape.py,</li>
-								<li>converting the CSV to JSON, cleaning the data as it goes,</li>
-								<li>calculating graphs,</li>
-								<li>doing linear regression calculations to provide predictions, where arr [0] is a point on the line, and arr [1] is the slope.</li>
-								<li>and estimating the price a week from now.</li>
+								<li>Calling webscrape.py,</li>
+								<li>Converting the CSV to JSON, cleaning the data as it goes,</li>
+								<li>Calculating graphs,</li>
+								<li>Doing linear regression calculations to provide predictions, where arr [0] is a point on the line, and arr [1] is the slope.</li>
+								<li>Estimating the price a week from now.</li>
 							</ul>
 							<p style="padding-left: 50px;">Graphs that were calculated in python are saved as images, for debugging.</p>
 						</div>
@@ -259,29 +269,123 @@
 							<img src="../media/main1.png" id="img1main">
 							<img src="../media/main2.png" id="img2main">
 							<img src="../media/main3.png" id="img1main">
-							<img src="../media/main4.png" id="img2main">
+							<img src="../media/main4.png" id="img2main" style="max-width: 30%; height:auto;">
 						</div>
 					</div>
 				</div>
 				<div id="ui">
 					<div class="heading"><h3>UI</h3></div>
-					<div id="data" class="Container">
-						<h4 style="text-align: center;" >data.js</h4>
-						<p>This file handles the user input, the user submits a stock code, the company name is then rendered as the title, and the code is sent as a parameter in a POST request to execute the python file.</p>
+					<div style="height:400px;">
+						<div id="data" class="Container">
+							<h4 style="text-align: center;" >data.js</h4>
+							<p>Handles user input, changes title, sends POST request to index.js.</p>
+						</div>
+						<div id="app"class="Container">
+							<h4 style="text-align: center;">app.js</h4>
+							<p>Renders all graphs using plotly.</p>
+						</div>
 					</div>
-					<div id="app"class="Container">
-						<h4 style="text-align: center;">app.js</h4>
-						<p>App.js serves to render all the graphs that are seen by the user, using a library called Plotly. It reads the JSON data provided by the python scripts I mentioned earlier, in short, it reads the data, and displays the line graph, and the candlestick graph that the user can see. Along with the dynamic features asked for in the advanced requirements.</p>
-					</div>
-					<div id="form"class="Container">
-						<h4 style="text-align: center;">form.js</h4>
-						<p>Form.js handles the client side of the form, it renders the HTML, ensures all fields are filled, sends the submitted data as a POST request, and then clears the fields for another submission</p>
-					</div>
-					<div id="accuracyreport" class="Container">
-						<h4 style="text-align: center;">accuracyreport.js</h4>
-						<p>This file submits a get request for the “accurate” variable mentioned above, and compares the number of accurate guesses, versus inaccurate ones.</p>
+					<div style="height: 400px;">
+						<div id="form"class="Container">
+							<h4 style="text-align: center;">form.js</h4>
+							<p>Client side of form, takes data, validates it, sends it to index.js, clears field for other input</p>
+						</div>
+						<div id="accuracyreport" class="Container">
+							<h4 style="text-align: center;">accuracyreport.js</h4>
+							<p>Gets the accuracy report from the database, through index.js</p>
+						</div>
 					</div>
 				</div>
+				<div id="pseudocode">
+					<div class="heading"><h2>Pseudocode</h2></div>
+					<div id="pseudoparagraph" class="Container">
+						<p>As part of my project, I implemented a linear regression model to analyse Apple’s stock
+							prices. The purpose of this algorithm is to:</p>
+							<ol>
+								<li>Extract and process stock price data from the dataset.</li>
+								<li>Perform regression analysis on different subsets of the data (full dataset, after the lowest price, last 7 days, etc.).</li>
+								<li>Plot regression lines alongside stock prices to visualise trends.</li>
+								<li>Predict the stock price for the next 7 days based on the average trend.</li>
+							</ol>
+					</div>
+					<div id="pseudocodeforreg" class="Container">
+						<p>Function slopefunction(all x values, all y values):</p>
+						<p style="text-indent:20px;">Number of elements on x axis</p>
+						<p style="text-indent:20px;">Get the mean of both axis</p>
+						<p style="text-indent:20px;">If mean equals 0 for x, return 0,0 to avoid divide by zero error</p>
+						<p style="text-indent:20px;">Calculate covariance of x and y</p>
+						<p style="text-indent:20px;">Calculate xovariance of x</p>
+						<p style="text-indent:20px;">Calculate slope (m=covariance of x and y, divided by covariance of x)</p>
+						<p style="text-indent:20px;">Y Intercept equals mean of y minus the slope times the mean of x</p>
+						<p style="text-indent:20px;">return slope and Y Intercept</p>
+						<p>Plot the regression line using the number of values in the x-axis, the starting point of the regression line, the y-intercept, and the slope</p>
+					</div>	
+					<div id="pseudolist"class="Container">
+						<ol>
+							<li>
+								Data Preparation
+								<ul>
+									<li>The dataset is loaded into NumPy arrays for processing.</li>
+									<li>Dates are converted into numerical values to facilitate regression calculations.</li>
+									<li>The lowest stock closing price is identified to analyse price recovery trends.</li>
+								</ul>
+							</li>
+							<li>
+								Regression Computation
+								<ul>
+									<li>The estimate_coefficient() function calculates the slope (m) and intercept (c) of the regression equation: y=mx+c</li>
+									<li>
+										Separate regression models are computed for:
+										<ul>
+											<li>The entire dataset</li>
+											<li>The period after the lowest price</li>
+											<li>The last 7 days of data</li>
+											<li>The last 7 days after the lowest price</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								Visualisation
+								<ul>
+									<li>Stock prices are plotted using Matplotlib.</li>
+									<li>Regression trend lines are added to illustrate trends over time.</li>
+								</ul>
+							</li>
+							<li>
+								Future Price Prediction
+								<ul>
+									<li>The average regression slope is calculated to estimate price trends.</li>
+									<li>The predicted stock price for the next 7 days is computed using this trend.</li>
+								</ul>
+							</li>
+						</ol>
+						<p>This method helps predict stock trends and identify market patterns by:
+							Analysing price movements over different time frames
+							Providing regression-based insights into stock trends
+							Predicting future stock prices using mathematical analysis</p>
+					</div>
+				</div>
+			</div>`
+			<div id="datacomparison">
+				<div class="heading"><h2>Data Before and After Cleaning</h2></div>
+				<table id="datatable">
+					<tr>
+						<th>type</th>
+						<th>raw</th>
+						<th>clean</th>
+					</tr>
+					<tr>
+						<td>Date</td>
+						<td>"03/18/25"</td>
+						<td>"03/18"</td>
+					</tr>
+					<tr>
+						<td>Close</td>
+						<td>"$214.00"</td>
+						<td>214.00</td>
+					</tr>
+				</table>
 			</div>
 			<footer></footer>
 </body>

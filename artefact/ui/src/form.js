@@ -11,7 +11,7 @@ function Form(){
 	 
 	const submitFeedback = async (event) => {
 		event.preventDefault();
-		if (ai_suggested_value >= starting_value && actual_value >= starting_value) {
+		if ((ai_suggested_value >= starting_value && actual_value >= starting_value) || (ai_suggested_value <= starting_value && actual_value <= starting_value)) {
 			accurate = true;
 		}
 		try{

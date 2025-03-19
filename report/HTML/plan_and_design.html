@@ -11,8 +11,7 @@
     <div id="body">
         <div id="Title"><h1>Plan and Design</h1></div>
         <div id="menu">
-            <a href="index.html" class="menulink">| Index |</a>
-            <a href="brief.html"class="menulink">| Brief |</a>
+            <a href="index.html" class="menulink">| Meeting the Brief |</a>
             <a href="investigation.html"class="menulink">| Investigation |</a>
             <a href="plan_and_design.html"class="menulink">| Plan and Design |</a>
             <a href="create.html"class="menulink">| Create |</a>
@@ -29,6 +28,10 @@
 					<img src="../media/Artefact.png" id="mindmap">
 				</div>
 				<div id="jsprojects" class="Container">
+					<p>In this section, I intend to discuss the structure of the project as well as the technologies
+						used throughout. My aim is to build an interactive information system that analyses stock
+						data.</p>
+					<p>My project should align closely with the requirements set out in the brief.</p>
 					<p>There are two different NodeJS “projects” within this project. One, a UI frontend built
 					using the react framework, and Plotly. And a backend server, built using ExpressJS
 					and Mongoose, it also handles and executes all the Python Scripts. Mostly, I really
@@ -37,15 +40,18 @@
 					React projects are client-side, and unable to interact with either local files, or
 					databases. The proper way to handle this is to send data from the frontend to an
 					API, and from there to the hosted database. This is how the server functions.</p>
-				</div>
-			</div>
-			<div class="separator">
-				
-				<div id="jsx" class="Container">
-					<p>An important part of this project is JSX, this is an extension of normal JavaScript,
-						and it allows for the HTML you see in most JavaScript files in the project. It shares
-						features of both a programming language, and a markup language, allowing for a
-						“best of both worlds” situation when trying to create dynamic, updating webpages.</p>
+					<p>The project will consist of two NodeJS applications:</p>
+					<ol>
+						<li>A frontend UI built using ReactJS and Plotly for interactive data visualisations.</li>
+						<li>A backend server using ExpressJS and Mongoose, which will handle API requests
+							and execute Python scripts for stock data analysis.</li>
+					</ol>
+					<p>ReactJS uses JSX, which simplifies building dynamic, interactive stock visualisations. It will integrate Javascript and HTML elements seamlessly.</p>
+					<p>Initially, I intended to keep everything within one NodeJS project. However, since React is
+						client-side and cannot directly access local files or databases, I will create a separate
+						backend server to handle stock data processing as well as data storage. This backend will
+						manage form submissions, handle Python scripts and API requests. It will connect the
+						frontend with a hosted database.</p>
 				</div>
 				<img src="../media/default react.png" id="jsx_example">
 			</div>
@@ -55,40 +61,37 @@
 			</div>
 		</div>
 		<div id="node">
-			<div class="heading"><h2>NodeJS</h2></div>
+			<div class="heading"><h2>Technology Choices</h2></div>
 			<div class="separator">
 				<div class="Container" id="p1">
-					<p>For the backend I have chosen to use NodeJS, there were a few main reasons for this. Firstly NodeJS is portable, meaning that an examiner can run the project on their own computer, provided they have the libraries installed. Secondly it is extremely performant. NodeJS has an extremely efficient way of rendering, that far outpaced the competition. And finally, it made it extremely easy to create both the back, and frontend of the project with compatible technologies</p>
+					<h3>NodeJS for Backend</h3>
+					<p>For the backend, I have chosen NodeJS for the following reasons:</p>
+					<ul>
+						<li>Portability – It will allow the examiner to run the project on their computer. Provided they have the necessary libraries</li>
+						<li>Performance – NodeJS is highly efficient for fetching stock data and rendering graphs.</li>
+						<li>Full-Stack Compatibility – It will ensure that both the backend and frontend usecompatible JavaScript technologies.</li>
+					</ul>
 				</div>
-				<div class="Container"id="nodeideal">
-					<p>NodeJS is ideal for operations such as:</p>
-					<ol type="a">
-						<li>Fetching live stock data</li>
-						<li>Rendering interactive visualisations, (when combined with Plotly and ReactJS)</li>
-					</ol>
+				<div class="Container"id="p2">
+					<h3>Why not Flask?</h3>
+					<p>While Flask was considered, I decided against it for the following reasons:</p>
+					<ul>
+						<li>More setup required – Flask requires a virtual environment, making it less portable.</li>
+						<li>Slower execution – Flask is not as optimised for real-time stock data processing.</li>
+						<li>Incompatibility with JavaScript – The form in the advanced requirements must use JavaScript, which would not be natively possible with Flask.</li>
+					</ul>
 				</div>
-		
-			<div class="Container"id="p2">
-				<p>I have also considered Flask as an alternative, however there were a few reasons why I did not chose to use it. Firstly there is much more setup required, you are supposed to use a python virtual environment, and importing libraries is somewhat more complex. Secondly, because we need to use a virtual environment, it would not have been portable at all. Thirdly, it is far slower, and far less efficient. And finally, in the advanced requirements, it is specified the form must be created with JavaScript, and this would not have been possible with Flask, because it is a Python environment</p>
-			</div>
 		</div>
 		</div>
 		<div id="regressionlines" class="separator">
 			<div class="heading"><h2>Regression Lines</h2></div>
 			<div id="regtext" class="Container">
-				<p>The regression lines in this project will be somewhat complicated. So, in order to visualise them better I have created some pseudocode you can see to the right, in order to better understand how it will work</p>
-			</div>
-			<div id="pseudocodeforreg" class="Container">
-				<p>Function slopefunction(all x values, all y values):</p>
-				<p style="text-indent:20px;">Number of elements on x axis</p>
-				<p style="text-indent:20px;">Get the mean of both axis</p>
-				<p style="text-indent:20px;">If mean equals 0 for x, return 0,0 to avoid divide by zero error</p>
-				<p style="text-indent:20px;">Calculate covariance of x and y</p>
-				<p style="text-indent:20px;">Calculate xovariance of x</p>
-				<p style="text-indent:20px;">Calculate slope (m=covariance of x and y, divided by covariance of x)</p>
-				<p style="text-indent:20px;">Y Intercept equals mean of y minus the slope times the mean of x</p>
-				<p style="text-indent:20px;">return slope and Y Intercept</p>
-				<p>Plot the regression line using the number of values in the x-axis, the starting point of the regression line, the y-intercept, and the slope</p>
+				<p>Since stock market trends are unpredictable, I will use linear regression to analyse historical
+					stock data. This will be done by calculating slope-based predictions over varying timeframes.
+					This will help to visualise stock trends and estimate whether prices are likely to rise, or fall
+					based on historical data. To complete and visualise these calculations, I have planned some
+					pseudocode (See “Create” Section for a further explanation) to demonstrate how the
+					regression models will work in Python.</p>
 			</div>
 		</div>
     <footer></footer>

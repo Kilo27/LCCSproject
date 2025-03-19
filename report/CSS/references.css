@@ -13,6 +13,7 @@ p{
     text-align: center;
     font-size: 25px;
     padding: 1px;
+	margin-bottom: 20px;
 }
 #title{
     width: absolute;
@@ -34,4 +35,38 @@ footer{
 	margin-top: 5px;
 	height:100px;
 	background-color: #5B5F97;
+}
+table, th, td{
+	color: white;
+	border: 1px solid white;
+	border-collapse:collapse;
+}
+td{
+	padding: 5px;
+}
+.heading{
+	width: absolute;
+	text-align: center;
+	border-bottom: double 6px #C84630;
+	margin-bottom: 5%;
+}
+#wordcount{
+	color: white;
+	width: 50%;
+	background-color: #C84630;
+	padding: 10px;
+	border-radius: 20px;
+	margin-right: 25%;
+	margin-left:25%;
+}
+#references{
+	margin: 20px;
+}
+#references a{
+	color: #FFFFFF;
+	margin: 3px;
+	background-color: #5B5F97;
+	border: 3px solid #5B5F97;
+	border-radius: 5px;
+	padding: 5px;
 }

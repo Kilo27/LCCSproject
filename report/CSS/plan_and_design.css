@@ -75,18 +75,13 @@ a:hover{
 }
 .separator{
 	width: absolute;
-	height:750px;
+	height:1500px;
 	background-color: #FAFAFA;
 	border-bottom: 1px dashed black;
 	margin-top: 20px;
 	margin-bottom:20px;
 }
-#pseudocodeforreg{
-	float:right;
-	text-align: left;
-	width: 50%;
-	background-color: #5B5F97;
-}
+
 #flowchart{
 	max-width: 100%;
 	height: auto;
@@ -114,7 +109,7 @@ a:hover{
 }
 
 #regressionlines{
-	height: 750px;
+	height: 600px;
 }
 #overviewparagraph{
 	float: left;
@@ -135,4 +130,9 @@ footer{
 	border-radius: 20px;
 	margin: 20px;
 	margin-right: 80px;
+}
+#regtext{
+	width: 30%;
+	margin-left:35%;
+	margin-right:40%;	
 }
